@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 
 // id , taille , x, y , opacity, animationDurée
+// id , taille , x, y , delay , animationDurée
 
 export const StarBackground = () => {
 
     const [stars, setStars] = useState([]);
+    const [meteors, setMeteors] = useState([]);
 
     useEffect(() => {
         generateStars();
+        generateMeteors();
     },[]);
 
     const generateStars = () =>{
         const nbOfStars = Math.floor((window.innerWidth * window.innerHeight) / 10000);
-
         const newStars = [];
-
         for ( let i = 0; i < nbOfStars; i++){
             newStars.push({
                 id: i,
@@ -22,12 +23,30 @@ export const StarBackground = () => {
                 x: Math.random()*100,
                 y: Math.random()*100,
                 opacity: Math.random() * 0.5 + 0.5,
-                animationDuration: Math.random()* 4 + 2, 
+                animationDuration: Math.random()* 30 + 5, 
 
             })
         };
 
     setStars(newStars)
+    };
+
+    const generateMeteors = () =>{
+        const nbOfMeteors = 25;
+        const newMeteors = [];
+        for ( let i = 0; i < nbOfMeteors; i++){
+            newMeteors.push({
+                id: i,
+                size: Math.random() * 1 + 1, 
+                x: Math.random()*30,
+                y: Math.random()*50,
+                delay: Math.random() * 15,
+                animationDuration: Math.random()* 5 + 2 , 
+
+            })
+        };
+
+    setMeteors(newMeteors)
     };
 
 return (
@@ -40,6 +59,17 @@ return (
                 top: star.y + "%", 
                 opacity: star.opacity ,
                 animationDuration: star.animationDuration + "s" , 
+            }}/>
+        ))}
+
+      {meteors.map((meteor)=>(
+            <div key={meteor.id} className="meteor animate-meteor" style={{
+                width: meteor.size* 50 + "px" , 
+                height: meteor.size + "px", 
+                left: meteor.x + "%", 
+                top: meteor.y + "%", 
+                animationDelay: meteor.delay,
+                animationDuration: meteor.animationDuration + "s" , 
             }}/>
         ))}
     </div>
