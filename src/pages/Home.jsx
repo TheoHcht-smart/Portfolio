@@ -1,5 +1,6 @@
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "../components/StarBackGround.jsx";
+import { Navbar } from "../components/Navbar.jsx";
 
 
 export const Home = () => {
@@ -10,7 +11,7 @@ export const Home = () => {
       {/* Effets étoile du BG */}
     <StarBackground />
       {/* Navbar*/}
-
+    <Navbar/>
       {/* contenu principal */}
 
       {/* Footer */}
