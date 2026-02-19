@@ -169,3 +169,15 @@ body{
   text-align: center;  
 
 }
+
+.white-glass {
+    backdrop-filter: blur(20px) saturate(1.7);
+    border: 1.5px solid #ffffff30;
+    background: var(--dark_glass_bg);
+}
+
+.black-glass {
+    backdrop-filter: blur(20px) saturate(1.7);
+    border: 1px solid var(--glass_edge);
+    background: var(--dark_glass_bg);
+}

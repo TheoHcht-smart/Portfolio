@@ -1,16 +1,23 @@
+/* Header principal */
 #header {
     margin: 15px;
     position: fixed;
     text-align: center;
-    width: 100%;
+    width: calc(100% - 30px);
     z-index: 1010;
+    top: 0;
+    left: 0;
 }
 
+/* Navbar container */
 #header .navbar {
     display: inline-flex;
     white-space: nowrap;
+    width: 100%;
+    justify-content: center;
 }
 
+/* Liste de navigation */
 #header .navbar ul {
     display: flex;
     list-style: none;
@@ -18,9 +25,10 @@
     align-items: center;
     padding: 5px;
     column-gap: 20px;
-    position:relative;
+    position: relative;
 }
 
+/* Liens de navigation */
 #header .navbar a {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -34,119 +42,290 @@
     color: var(--white);
     text-decoration: none;
     align-items: center;
-    transition: background-color .2s;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
 }
 
+/* Hover effect sur les liens */
 #header .navbar a:hover {
-    background-color:  #f2f2f21a;
+    background-color: #f2f2f21a;
 }
 
+/* Sélecteur animé (barre de fond) */
 #header .selector {
     position: absolute;
     border-radius: 100px;
     height: calc(100% - 11px);
-    left:0rem;
+    left: 0rem;
     width: 0px;
     display: flex;
     z-index: -1;
+    background: linear-gradient(135deg, var(--yg), var(--light-yg));
+    transition: all 0.2s ease;
+    opacity: 0;
 }
 
+/* Container pour les SVG de navigation */
 #header .nav-svg {
     margin-right: 7px;
     border-radius: 100px;
     width: clamp(20px, 6vw, 27px);
     height: clamp(20px, 6vw, 27px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
 }
 
+/* SVG dans le nav-svg */
 #header .nav-svg svg {
     width: 100%;
     height: 100%;
 }
 
+/* Style actif du SVG */
 #header .active-nav-svg {
     background-color: var(--dark-yg);
 }
 
 #header .active-nav-svg .poly-svg-nav-light {
-    fill : var(--yg);
+    fill: var(--yg);
 }
 
 #header .active-nav-svg .poly-svg-nav-base {
-    fill : #b7ff00;;
+    fill: #719e00;
 }
 
+/* Couleur des SVG par défaut */
 #header .poly-svg-nav-light {
-    fill :  #c6c6c6;
+    fill: #ffffff;
 }
 
 #header .poly-svg-nav-base {
-    fill :  #4352f5;;
+    fill: #0081ea;
+    transition: fill 0.2s ease;
 }
 
+/* Bouton de contact */
 #header .contact {
     position: fixed;
     right: 15px;
+    top: 15px;
     text-decoration: none;
     border-radius: 100px;
     height: 47px;
     width: 150px;
     line-height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+#header .contact:hover {
+    transform: translateY(-2px);
 }
 
 #header .contact span {
     font-size: var(--fs-nav);
+    font-weight: var(--w-button);
+    color: var(--white);
+    margin-right: 10px;
+}
+
+/* Container de l'icône du contact */
+#header .contact .icon-cont {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yg);
+    transition: all 0.2s ease;
+}
+
+#header .contact .icon-cont .icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--dark-yg);
+    transition: all 0.2s ease;
+}
+
+#header .contact:hover .icon-cont {
+    background-color: var(--light-yg);
+    transform: scale(1.1);
+}
+
+.white-glass {
+    backdrop-filter: blur(20px) saturate(1.7);
+    border: 1.5px solid #ffffff30;
+    background: var(--dark_glass_bg);
+}
+
+.black-glass {
+    backdrop-filter: blur(20px) saturate(1.7);
+    border: 1px solid var(--glass_edge);
+    background: var(--dark_glass_bg);
+}
+
+.text-box {
+    
+    box-shadow: inset 0 0 0 0px var(--dark_purple);
+    border-color: var(--glass_edge);
+    border-width: 0px;
+    background-color: var(--dark_purple);
+    border-radius: 8px;
+    transition: all .4s;
+}
+
+.text-box:hover {
+    box-shadow: inset 0 0 0 1px var(--purple);
+    border-width: 2px;
 }
 
 
+/* Responsive Media Queries */
+
+/* Tablets (992px et moins) */
 @media (max-width: 992px) {
-
-    #header .contact{
+    #header .contact {
         width: auto;
-    }
-
-    #header .icon-cont {
-        width: calc(100% - 4px);
-        aspect-ratio: 1/1;
-        position: relative;
+        right: 15px;
     }
 
     #header .contact span {
         display: none;
     }
-}
 
-@media (max-width: 668px) {
+    #header .contact .icon-cont {
+        width: 47px;
+        height: 47px;
+        margin: 0;
+    }
 
     #header .navbar ul {
+        column-gap: 15px;
+    }
+}
+
+
+/* Petits tablets (768px et moins) */
+@media (max-width: 768px) {
+    #header {
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+
+    #header .navbar ul {
+        column-gap: 10px;
+        padding: 4px;
+    }
+
+    #header .navbar a {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    #header .nav-svg {
+        margin-right: 5px;
+        width: clamp(18px, 5vw, 24px);
+        height: clamp(18px, 5vw, 24px);
+    }
+}
+
+/* Mobiles (668px et moins) */
+@media (max-width: 668px) {
+    #header .navbar ul {
         column-gap: 0px;
+        padding: 3px;
     }
 
     #header .navbar a {
         padding-left: 10px;
         padding-right: 10px;
+        border-radius: 50px;
     }
 
     #header .nav-svg {
         margin-right: 3px;
+        width: 20px;
+        height: 20px;
+    }
+
+    #header .contact {
+        width: 47px;
+        height: 47px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #header .contact .icon-cont {
+        width: 100%;
+        height: 100%;
     }
 }
 
+/* Petits mobiles (500px et moins) */
 @media (max-width: 500px) {
-
     #header {
         text-align: left;
+        margin: 8px;
+        width: calc(100% - 16px);
     }
 
-    #header .contact  {
-        height: calc(var(--fs-nav) + 30px);
+    #header .navbar ul {
+        column-gap: 0px;
+        padding: 2px;
     }
 
     #header .navbar a {
         padding: 7px;
+        font-size: 12px;
     }
 
     #header .nav-svg {
         margin-right: 0px;
-        display: none;
+        width: 18px;
+        height: 18px;
+    }
+
+    #header .contact {
+        right: 8px;
+        top: 8px;
+        width: 43px;
+        height: 43px;
+    }
+
+    #header .selector {
+        height: calc(100% - 7px);
+    }
+}
+
+/* Très petits mobiles (400px et moins) */
+@media (max-width: 400px) {
+    #header .navbar a {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    #header .nav-svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    #header .contact {
+        width: 40px;
+        height: 40px;
+        right: 6px;
+        top: 6px;
     }
 }
