@@ -73,7 +73,7 @@
   --foreground : 222 47% 11%;
 
   --card : 0 0% 100%;
-  --primary : 250 47% 60%;
+  --primary : 200 75% 55%;
   --primary-foreground : 210 40% 98%;
 
   --border : 214 32% 91%;
@@ -83,7 +83,7 @@
   --background : 222 47% 4%;
   --foreground : 213 31% 91%;
   --card : 222 47% 8%;
-  --primary : 250 65% 65%; /* 255 100% 100% = BLANC */
+  --primary : 200 75% 55%; /* 255 100% 100% = BLANC */
   --primary-foreground : 213 31% 91%;
   --border : 217 33% 20%;
 }
@@ -168,16 +168,4 @@ body{
   padding: 0;
   text-align: center;  
 
-}
-
-.white-glass {
-    backdrop-filter: blur(20px) saturate(1.7);
-    border: 1.5px solid #ffffff30;
-    background: var(--dark_glass_bg);
-}
-
-.black-glass {
-    backdrop-filter: blur(20px) saturate(1.7);
-    border: 1px solid var(--glass_edge);
-    background: var(--dark_glass_bg);
 }

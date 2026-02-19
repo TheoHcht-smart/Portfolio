@@ -76,7 +76,9 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
+   
 }
+
 
 /* SVG dans le nav-svg */
 #header .nav-svg svg {
@@ -86,24 +88,28 @@
 
 /* Style actif du SVG */
 #header .active-nav-svg {
-    background-color: var(--dark-yg);
+   /* background-color: var(--dark-yg);*/
+   background-color: #0fd3ff46;
 }
 
 #header .active-nav-svg .poly-svg-nav-light {
-    fill: var(--yg);
+    /*fill: var(--yg);*/
+    fill: #ffffff;
 }
 
 #header .active-nav-svg .poly-svg-nav-base {
-    fill: #719e00;
+    fill: #0081ea;
 }
 
 /* Couleur des SVG par défaut */
 #header .poly-svg-nav-light {
+   /*fill : var(--white);*/
     fill: #ffffff;
 }
 
 #header .poly-svg-nav-base {
-    fill: #0081ea;
+  /*  fill :  var(--transp_white);*/
+   fill: #0081ea;
     transition: fill 0.2s ease;
 }
 
@@ -170,7 +176,8 @@
 .black-glass {
     backdrop-filter: blur(20px) saturate(1.7);
     border: 1px solid var(--glass_edge);
-    background: var(--dark_glass_bg);
+   /* background: var(--dark_glass_bg);*/
+    background:  #02418d61 ;
 }
 
 .text-box {
