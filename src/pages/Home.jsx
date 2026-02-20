@@ -3,7 +3,7 @@ import { StarBackground } from "../components/StarBackGround.jsx";
 import { Navbar } from "../components/Navbar2.jsx";
 import { MapPinOff } from "lucide-react";
 import { HeroSection } from "../components/HeroSection.jsx";
-
+import { AboutSection } from "../components/AboutSection.jsx";
 
 export const Home = () => {
   return (
@@ -17,6 +17,7 @@ export const Home = () => {
       {/* contenu principal */}
     <main>
       <HeroSection/>
+      <AboutSection/>
 
     
     </main>
