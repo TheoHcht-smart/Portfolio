@@ -3,6 +3,7 @@
 @theme{
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
+ 
   --color-foreground: hsl(var(--foreground));
 
   --color-primary: hsl(var(--primary));
@@ -65,11 +66,20 @@
       opacity: 0;
     }
   }
+
+  @keyframes cloud-drift {
+    0% {
+      transform: translateX(-28vw);
+    }
+    100% {
+      transform: translateX(128vw);
+    }
+  }
 }
 
 @layer base {
 :root {
-  --background : 210 40% 98%;
+  --background : 200 95% 88%;
   --foreground : 222 47% 11%;
 
   --card : 0 0% 100%;
@@ -99,6 +109,14 @@ html{
 body{
   @apply bg-background text-foreground transition-colors duration-300; 
   font-feature-settings: "rlig"1 , "calt" 1;
+  background-image: linear-gradient(to bottom, hsl(219, 100%, 18%) 0%, hsl(206, 100%, 50%) 45%, hsl(197, 100%, 86%) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.dark body {
+  background-image: none;
 }
 
 }
@@ -161,6 +179,39 @@ body{
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0  100px 3px rgba(255,255,255,0.5);
 
+}
+
+.cloud {
+  position: absolute;
+  left: -220px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  filter: blur(0.5px);
+  animation-name: cloud-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.cloud::before {
+  width: 42%;
+  height: 125%;
+  left: 14%;
+  top: -52%;
+}
+
+.cloud::after {
+  width: 36%;
+  height: 105%;
+  right: 14%;
+  top: -38%;
 }
 
 #root{

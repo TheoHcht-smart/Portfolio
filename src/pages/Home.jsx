@@ -1,28 +1,42 @@
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "../components/StarBackGround.jsx";
 import { Navbar } from "../components/Navbar2.jsx";
-import { MapPinOff } from "lucide-react";
+import { useEffect, useState } from "react";
 import { HeroSection } from "../components/HeroSection.jsx";
 import { AboutSection } from "../components/AboutSection.jsx";
 import Projects from "../components/projects.jsx";
+import { CloudBackground } from "../components/CloudBackground.jsx";
 
 export const Home = () => {
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(root.classList.contains("dark"));
+    });
+
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen text-foreground overflow-x-hidden">
       {/* Thème sombre ou clair */}
-    <ThemeToggle />
-      {/* Effets étoile du BG */}
-    <StarBackground />
+      <ThemeToggle />
+      {isDarkMode ? <StarBackground /> : <CloudBackground />}
+
       {/* Navbar*/}
-    <Navbar/>
+      <Navbar />
       {/* contenu principal */}
-    <main>
-      <HeroSection/>
-      <AboutSection/>
-      <Projects/>
-    
-    </main>
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <Projects />
+      </main>
       {/* Footer */}
     </div>
   );
-}
+};
