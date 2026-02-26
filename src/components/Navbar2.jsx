@@ -1,11 +1,11 @@
 import { cn } from "../lib/utils"
 import { useEffect, useRef, useState } from "react";
-import "../header.css";
+import "../assets/header.css";
 
 const navItems = [
     { name: "Accueil", href: "#accueil" },
     { name: "À propos", href: "#about" },
-    { name: "Projets", href: "#projets" },
+    { name: "Projets", href: "#projects" },
     { name: "Compétences", href: "#compétences" },
     {name : "Contact", href : "#contact"},
 ];
@@ -111,6 +111,12 @@ export const Navbar = () => {
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 200 200">
                                             <polygon className="poly-svg-nav-base" points="180,99 99,20 99,99 99,128.62 48.38,110.1 48.38,158.25 99,178 149.62,158.25 149.62,110.1 " />
                                             <polygon className="poly-svg-nav-light" points="99,20 18,99 99,128.62 " />
+                                        </svg>
+                                    )}
+                                    {item.name === "À propos" && (
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 200 200">
+                                            <path className="poly-svg-nav-base" d="M100,22c-21,0-38,17-38,38s17,38,38,38s38-17,38-38S121,22,100,22z M100,89c-16,0-29-13-29-29s13-29,29-29s29,13,29,29S116,89,100,89z" />
+                                            <path className="poly-svg-nav-light" d="M40,178v-10c0-27.6,22.4-50,50-50h20c27.6,0,50,22.4,50,50v10H40z" />
                                         </svg>
                                     )}
                                     {item.name === "Projets" && (

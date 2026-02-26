@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar2.jsx";
 import { MapPinOff } from "lucide-react";
 import { HeroSection } from "../components/HeroSection.jsx";
 import { AboutSection } from "../components/AboutSection.jsx";
+import Projects from "../components/projects.jsx";
 
 export const Home = () => {
   return (
@@ -18,7 +19,7 @@ export const Home = () => {
     <main>
       <HeroSection/>
       <AboutSection/>
-
+      <Projects/>
     
     </main>
       {/* Footer */}

@@ -1,0 +1,13 @@
+{
+	"projects":
+	[
+		{
+			"title": "Smart Planner",
+			"description": "Smart planner est un projet d'application web de planification intelligente. <br><br> l'application des algorithmes d'optimisation pour générer des plannings efficaces en fonction des contraintes et des préférences de l'utilisateur. D'autres features incluent la prévision de couverts, gestion de masse salariale et la perfomance mensuel.",
+			"languages": ["React", "Python","Git", "Api"],
+			"link": "https://smart-planner.fr",
+			"image": "../public/img/smartplanner.png",
+			"date": "2025"
+		}
+    ]
+}
