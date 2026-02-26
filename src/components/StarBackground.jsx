@@ -42,14 +42,14 @@ export const StarBackground = () => {
     };
 
     const generateMeteors = () =>{
-        const nbOfMeteors = 25;
+        const nbOfMeteors = 30;
         const newMeteors = [];
         for ( let i = 0; i < nbOfMeteors; i++){
             newMeteors.push({
                 id: i,
                 size: Math.random() * 1 + 1, 
                 x: Math.random()*40,
-                y: Math.random()*50,
+                y: Math.random()*100,
                 delay: Math.random() * 15,
                 animationDuration: Math.random()* 5 + 2 , 
 

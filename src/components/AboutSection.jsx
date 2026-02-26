@@ -15,7 +15,25 @@ export const AboutSection = () => {
                     <p className="text-md text-muted-foreground">
                     Je suis en 2ème année de BUT informatique parcours réalisation d'applications à l'iut de Metz.
                     </p>
-                    <p className="text-md text-muted-foreground">J'ai pu créer plusieurs petits projets scolaires, ainsi qu'un projet professionnel en collaboration avec @Mirecos et @evamln. Ce projet consistait à créer une application de gestion de planning et de prévision clientèle pour un restaurant, ce qui m'a permis d'acquérir une expérience précieuse en développement d'applications web et en travail d'équipe.</p>
+                    <p className="text-md text-muted-foreground">J'ai pu créer plusieurs petits projets scolaires, ainsi qu'un projet professionnel en collaboration avec deux développeurs. Ce projet consistait à créer une application de gestion de planning et de prévision clientèle pour un restaurant, ce qui m'a permis d'acquérir une expérience précieuse en développement d'applications web et en travail d'équipe.</p>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                        <a
+                            href="https://github.com/Mirecos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cosmic-button border border-primary bg-transparent hover:bg-primary"
+                        >
+                            GitHub Mirecos
+                        </a>
+                        <a
+                            href="https://github.com/evamln"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cosmic-button border border-primary bg-transparent hover:bg-primary"
+                        >
+                            GitHub evamln
+                        </a>
+                    </div>
                     <p className="text-md text-muted-foreground">
                     En plus de mes compétences techniques, je suis également passionné par la finance et les marchés financiers. J'aime comprendre comment les marchés fonctionnent et comment les données peuvent être utilisées pour mieux comprendre le monde qui nous entoure.
                     </p>
