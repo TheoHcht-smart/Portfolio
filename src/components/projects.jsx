@@ -159,7 +159,7 @@ export default function Projects() {
       <section id="projects" className="py-100 px-4 relative" >
         <div className="project-cont" style={{ position: "relative" }}>
           <div className="grid-bg" aria-hidden="true" />
-          <h2 className=" text-3xl md:text-4xl font-bold mb-12 text-center">Mes <span className="text-primary">projets</span></h2>
+          <h2 className=" text-3xl md:text-4xl font-bold mb-12 text-center">Mes <span className="text-primary">projets</span> .</h2>
           <div className="horizontall-sect">
             <div className="project-list-container" ref={containerRef} onScroll={handleContainerScroll}>
               <div className="project-list" style={{ display: "flex" }}>

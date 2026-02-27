@@ -7,7 +7,7 @@ export const AboutSection = () => {
 
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center ">
 
-            À propos de <span className="text-primary"> Moi</span>  
+            À propos de <span className="text-primary"> Moi</span> . 
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
