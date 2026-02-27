@@ -6,6 +6,7 @@ import { HeroSection } from "../components/HeroSection.jsx";
 import { AboutSection } from "../components/AboutSection.jsx";
 import Projects from "../components/projects.jsx";
 import { CloudBackground } from "../components/CloudBackground.jsx";
+import Skills from "../components/skills.jsx";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -35,6 +36,7 @@ export const Home = () => {
         <HeroSection />
         <AboutSection />
         <Projects />
+        <Skills />
       </main>
       {/* Footer */}
     </div>
