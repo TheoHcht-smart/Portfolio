@@ -25,6 +25,8 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
+         <img src="/logo.png" className="logo" alt="Logo" style={{width: "100px"}} />
+
       {/* Thème sombre ou clair */}
       <ThemeToggle />
       {isDarkMode ? <StarBackground /> : <CloudBackground />}
