@@ -7,6 +7,7 @@ import { AboutSection } from "../components/AboutSection.jsx";
 import Projects from "../components/projects.jsx";
 import { CloudBackground } from "../components/CloudBackground.jsx";
 import Skills from "../components/skills.jsx";
+import { CursorTrail } from "../components/CursorTrail.jsx";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -25,6 +26,7 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
+      <CursorTrail />
          <img src="/logo.png" className="logo" alt="Logo" style={{width: "100px"}} />
 
       {/* Thème sombre ou clair */}

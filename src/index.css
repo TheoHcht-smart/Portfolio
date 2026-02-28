@@ -64,6 +64,7 @@
     100% {
       transform: rotate(215deg) translateX(-500px)  ;
       opacity: 0;
+      /* width: 0; */
     }
   }
 
@@ -109,7 +110,7 @@ html{
 body{
   @apply bg-background text-foreground transition-colors duration-300; 
   font-feature-settings: "rlig"1 , "calt" 1;
-  background-image: linear-gradient(to bottom, hsl(219, 100%, 18%) 0%, hsl(206, 100%, 50%) 45%, hsl(197, 100%, 86%) 100%);
+  background-image: radial-gradient(ellipse at bottom, hsl(206, 87%, 67%) ,hsl(219, 100%, 18%) );
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
@@ -220,4 +221,16 @@ body{
   padding: 0;
   text-align: center;  
 
+}
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
 }
