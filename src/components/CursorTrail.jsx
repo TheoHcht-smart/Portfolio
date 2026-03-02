@@ -27,6 +27,7 @@ export const CursorTrail = () => {
   const circlesRef = useRef([]);
   const coordsRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef(null);
+  const isDisabledRef = useRef(false);
 
   useEffect(() => {
     const circles = circlesRef.current;
@@ -36,14 +37,58 @@ export const CursorTrail = () => {
       circle.x = 0;
       circle.y = 0;
       circle.style.backgroundColor = colors[index % colors.length];
+      circle.style.transition = "opacity 0.15s ease";
+      circle.style.opacity = "1";
     });
+
+    const setTrailVisibility = (visible) => {
+      circles.forEach((circle) => {
+        if (!circle) return;
+        circle.style.opacity = visible ? "1" : "0";
+      });
+      isDisabledRef.current = !visible;
+    };
+
+    const shouldDisableFromTarget = (target) => {
+      if (!(target instanceof Element)) return false;
+
+      const elementAtPoint = document.elementFromPoint(
+        coordsRef.current.x,
+        coordsRef.current.y
+      );
+      const hoveredElement = elementAtPoint || target;
+
+      const isInsideProjectsInteractiveArea = hoveredElement.closest(
+        "#projects .project-list-container, #projects .project-card"
+      );
+
+      if (isInsideProjectsInteractiveArea) return true;
+
+      const computedCursor = window.getComputedStyle(hoveredElement).cursor;
+
+      if (computedCursor === "pointer") return true;
+
+      const interactiveParent = hoveredElement.closest(
+        "a, button, [role='button'], input[type='submit'], input[type='button']"
+      );
+
+      return Boolean(interactiveParent);
+    };
 
     const handleMouseMove = (event) => {
       coordsRef.current.x = event.clientX;
       coordsRef.current.y = event.clientY;
+
+      const shouldDisable = shouldDisableFromTarget(event.target);
+      setTrailVisibility(!shouldDisable);
     };
 
     const animateCircles = () => {
+      if (isDisabledRef.current) {
+        animationFrameRef.current = requestAnimationFrame(animateCircles);
+        return;
+      }
+
       let x = coordsRef.current.x;
       let y = coordsRef.current.y;
 
