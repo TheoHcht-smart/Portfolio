@@ -8,6 +8,15 @@
 			"link": "https://smart-planner.fr",
 			"image": "../public/imgProjects/smartplanner.png",
 			"date": "2025"
+		},
+
+		{
+			"title": "Algorithme de reconnaissance graphique de prix haussier ou baissier",
+			"description": "Petit projets pour utiliser et comprendre le fonctionnement de pytorch et des réseaux de neurones.<br><br> Cette algorithme de deep learning a été entrainé avec 50 images de graphiques baissiers et 50 images de graphiques haussiers.<br><br> Après l'entrainement, l'algorithme permet de dire si l'image d'un graphique est haussière ou baissière.",
+			"languages": [ "Python","Git", "Pytorch"],
+			"link": "",
+			"image": "../public/imgProjects/graph.png",
+			"date": "2025"
 		}
     ]
 }

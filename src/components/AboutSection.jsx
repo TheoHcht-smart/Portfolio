@@ -37,7 +37,13 @@ export const AboutSection = () => {
                     En plus de mes compétences techniques, je suis également passionné par la finance et les marchés financiers. J'aime comprendre comment les marchés fonctionnent et comment les données peuvent être utilisées pour mieux comprendre le monde qui nous entoure.
                     </p>
                     <div className=" flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <a href="" className="cosmic-button bg-primary/80 hover:bg-primary"> Télécharger mon CV</a>
+                        <a
+                            href="/cv-theo-huchot.pdf"
+                            download="CV-Theo-Huchot.pdf"
+                            className="cosmic-button bg-primary/80 hover:bg-primary"
+                        >
+                            Télécharger mon CV
+                        </a>
                     </div>
                 </div>
             <div className="grid grid-cols-1 gap-6">
