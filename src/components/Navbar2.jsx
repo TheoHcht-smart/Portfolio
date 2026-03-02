@@ -43,11 +43,15 @@ export const Navbar = () => {
 
     useEffect(() => {
         // Initialisation
-        const sections = document.querySelectorAll("section");
+        const sections = navItems
+            .map((item) => document.querySelector(item.href))
+            .filter(Boolean);
         if (sections.length > 0) {
             lastCurrentSectionRef.current = sections[0];
             updateSelectorPosition(sections[0]);
         }
+
+        updateSelector();
     }, []);
 
     const updateSelectorPosition = (section) => {
@@ -71,23 +75,28 @@ export const Navbar = () => {
     };
 
     const updateSelector = () => {
-        const scrollPos = window.scrollY;
-        let maxVisibleHeight = -1;
-        let currentSection = null;
+        const sections = navItems
+            .map((item) => document.querySelector(item.href))
+            .filter(Boolean);
 
-        const sections = document.querySelectorAll("section");
-        sections.forEach((section) => {
-            const top = section.offsetTop;
-            const bottom = top + section.offsetHeight;
-            const visibleTop = Math.max(top, scrollPos);
-            const visibleBottom = Math.min(bottom, scrollPos + window.innerHeight);
-            const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        if (sections.length === 0) return;
 
-            if (visibleHeight > maxVisibleHeight) {
-                maxVisibleHeight = visibleHeight;
-                currentSection = section;
-            }
-        });
+        const isAtPageBottom =
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 2;
+
+        let currentSection = sections[0];
+
+        if (isAtPageBottom) {
+            currentSection = sections[sections.length - 1];
+        } else {
+            const headerOffset = 120;
+            sections.forEach((section) => {
+                if (section.getBoundingClientRect().top <= headerOffset) {
+                    currentSection = section;
+                }
+            });
+        }
 
         if (currentSection && lastCurrentSectionRef.current?.id !== currentSection.id) {
             // Supprimer la classe active de tous les SVG
