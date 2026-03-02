@@ -8,6 +8,7 @@ import Projects from "../components/projects.jsx";
 import { CloudBackground } from "../components/CloudBackground.jsx";
 import Skills from "../components/skills.jsx";
 import { CursorTrail } from "../components/CursorTrail.jsx";
+import { Contact } from "../components/Contact.jsx";
 
 export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -41,6 +42,7 @@ export const Home = () => {
         <AboutSection />
         <Projects />
         <Skills />
+        <Contact />
       </main>
       {/* Footer */}
     </div>
