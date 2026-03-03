@@ -6,9 +6,9 @@ import './index.css';
 function App() {
  return (
     <>
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Routes>
-      <Route index element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

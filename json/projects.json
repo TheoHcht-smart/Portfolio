@@ -13,10 +13,19 @@
 		{
 			"title": "Algorithme de reconnaissance graphique de prix haussier ou baissier",
 			"description": "Petit projets pour utiliser et comprendre le fonctionnement de tensorflow et des réseaux de neurones.<br><br> Cette algorithme de deep learning a été entrainé avec 50 images de graphiques baissiers et 50 images de graphiques haussiers.<br><br> Après l'entrainement, l'algorithme permet de dire si l'image d'un graphique est haussière ou baissière.",
-			"languages": [ "Python","Git", "tensorflow"],
+			"languages": [ "Python","Git", "Tensorflow"],
 			"link": "https://github.com/TheoHcht-smart/chart_ia",
-			"image": "../public/imgProjects/graph.png",
+			"image": "../public/imgProjects/chart.png",
 			"date": "2025"
+		},
+
+		{
+			"title": "Algorythme de statistiques de main de poker",
+			"description": "Projet universitaire de développement d'un algorithme de statistiques de main de poker. <br><br> L'algorithme permet d'analyser les mains d'une partie de poker. L'algorithme nous donner les statistiques d'avoir une main au poker (paire, brelan, etc.) sur X parties.",
+			"languages": [ "Typescript","Git" ],
+			"link": "https://github.com/TheoHcht-smart/pokerstats",
+			"image": "../public/imgProjects/poker.png",
+			"date": "2022"
 		}
     ]
 }

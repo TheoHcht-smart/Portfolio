@@ -2,8 +2,7 @@
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
 import "./../assets/project.css"; // adapte le chemin selon ton arborescence
-
-const PROJECTS_JSON_PATH = "./../json/projects.json"; // adapte si besoin
+import projectsData from "../../json/projects.json";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -15,10 +14,24 @@ export default function Projects() {
   const cursorRef = useRef();
   const mousePosRef = useRef({ x: 0, y: 0 });
 
+  const withBaseUrl = (assetPath) => {
+    if (!assetPath) return assetPath;
+    if (/^https?:\/\//i.test(assetPath)) return assetPath;
+
+    const normalizedPath = assetPath
+      .replace(/^((\.\.\/)+)?public\//, "")
+      .replace(/^\/+/, "");
+
+    return `${import.meta.env.BASE_URL}${normalizedPath}`;
+  };
+
   useEffect(() => {
-    fetch(PROJECTS_JSON_PATH)
-      .then((res) => res.json())
-      .then((data) => setProjects(data.projects || []));
+    const normalizedProjects = (projectsData.projects || []).map((project) => ({
+      ...project,
+      image: withBaseUrl(project.image),
+    }));
+
+    setProjects(normalizedProjects);
   }, []);
 
   // Scroll to active card on resize
