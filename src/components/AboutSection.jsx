@@ -38,7 +38,7 @@ export const AboutSection = () => {
                     </p>
                     <div className=" flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                         <a
-                            href="/cv-theo-huchot.pdf"
+                            href={`${import.meta.env.BASE_URL}cv-theo-huchot.pdf`}
                             download="CV-Theo-Huchot.pdf"
                             className="cosmic-button bg-primary/80 hover:bg-primary"
                         >
