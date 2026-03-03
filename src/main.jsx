@@ -4,10 +4,10 @@ import './index.css'
 import App from './App.jsx'
 
 const storedTheme = localStorage.getItem('theme');
-if (storedTheme === 'dark') {
-  document.documentElement.classList.add('dark');
-} else {
+if (storedTheme === 'light') {
   document.documentElement.classList.remove('dark');
+} else {
+  document.documentElement.classList.add('dark');
 }
 
 createRoot(document.getElementById('root')).render(
