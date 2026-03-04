@@ -31,14 +31,14 @@ export const Contact = () => {
     return (
         <section id="contact" className="py-24 px-4 relative bg-secondary/30">
             <div className="max-w-3/4 mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold mb-50 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-25 text-center">
                     Me <span className="text-primary">contacter.</span>
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"></p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-8">
-                        <h3 className="text-2xl font-semibold mb-30">Informations de contact</h3>
+                        <h3 className="hidden md:block text-2xl font-semibold mb-30">Informations de contact</h3>
 
                         <div className="space-y-6">
                             <div className="flex items-start space-x-4">
