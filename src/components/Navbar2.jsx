@@ -12,6 +12,7 @@ const navItems = [
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navRef = useRef(null);
     const selectorRef = useRef(null);
     const lastCurrentSectionRef = useRef(null);
@@ -30,6 +31,9 @@ export const Navbar = () => {
 
     useEffect(() => {
         const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setIsMobileMenuOpen(false);
+            }
             if (lastCurrentSectionRef.current) {
                 updateSelectorPosition(lastCurrentSectionRef.current);
             }
@@ -108,13 +112,31 @@ export const Navbar = () => {
         }
     };
 
+    const handleNavLinkClick = () => {
+        if (window.innerWidth <= 768) {
+            setIsMobileMenuOpen(false);
+        }
+    };
+
     return (
         <header id="header">
             <nav className="navbar" ref={navRef}>
-                <ul className="black-glass">
+                <button
+                    type="button"
+                    className={`mobile-menu-toggle${isMobileMenuOpen ? " open" : ""}`}
+                    aria-label="Ouvrir le menu"
+                    aria-expanded={isMobileMenuOpen}
+                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+
+                <ul className={cn("black-glass", isMobileMenuOpen && "mobile-open")}>
                     {navItems.map((item, key) => (
                         <li key={key}>
-                            <a href={item.href}>
+                            <a href={item.href} onClick={handleNavLinkClick}>
                                 <div className="nav-svg">
                                     {item.name === "Accueil" && (
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 200 200">
