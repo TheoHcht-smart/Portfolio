@@ -53,8 +53,8 @@ export const AboutSection = () => {
                         <Code className="h-6 w-6 text-primary"/>
                         </div>
                         <div className="text-left">
-                            <h4 className="font-semibold text-lg">Compétences techniques</h4>
-                            <p className="text-muted-foreground">Développement d'application, programmation, bases de données</p>
+                            <h4 className="font-semibold text-lg text-primary">Compétences techniques</h4>
+                            <p className="about-skill-text">Développement d'application, programmation, bases de données</p>
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@ export const AboutSection = () => {
                         <User className="h-6 w-6 text-primary"/>
                         </div>
                         <div className="text-left">
-                            <h4 className="font-semibold text-lg">Compétences personnelles</h4>
-                            <p className="text-muted-foreground">Communication, travail d'équipe, organisation</p>
+                            <h4 className="font-semibold text-lg text-primary">Compétences personnelles</h4>
+                            <p className="about-skill-text">Communication, travail d'équipe, organisation</p>
                         </div>
                     </div>
                 </div>
@@ -75,8 +75,8 @@ export const AboutSection = () => {
                         <Briefcase className="h-6 w-6 text-primary"/>
                         </div>
                         <div className="text-left">
-                            <h4 className="font-semibold text-lg">Expérience professionnelle</h4>
-                            <p className="text-muted-foreground">Développement d'unapplications web, collaboration en équipe, gestion de projets</p>
+                            <h4 className="font-semibold text-lg text-primary">Expérience professionnelle</h4>
+                            <p className="about-skill-text">Développement d'unapplications web, collaboration en équipe, gestion de projets</p>
                         </div>
                     </div>
                 </div>

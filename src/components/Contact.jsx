@@ -109,8 +109,8 @@ export const Contact = () => {
                         </div>
                     </div>
 
-                    <div className="bg-card p-8 rounded-lg shadow-xs">
-                        <h3 className="text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
+                    <div className="contact-message-card bg-card p-8 rounded-lg shadow-xs">
+                        <h3 className=" text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
 
                         <form className="space-y-6" onSubmit={handleSubmit}>
                             <div>
