@@ -15,6 +15,7 @@ export const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
     document.documentElement.classList.contains("dark")
   );
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -26,9 +27,18 @@ export const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
-      <CursorTrail />
+      {!isMobile && <CursorTrail />}
         <img src={`${import.meta.env.BASE_URL}logo.png`} className="logo" alt="Logo" style={{width: "100px"}} />
 
       {/* Thème sombre ou clair */}
