@@ -5,14 +5,14 @@
 }
 
 #projects .separator {
-    fill: var(--dark_purple);
+    fill: var(--dark_navy);
 }
 
 
 
 #projects .project-cont {
     position: relative;
-    background-color: var(--dark_purple);
+    background-color: var(--dark_navy);
     margin-bottom: -101px;
     overflow: hidden;
     border-bottom-left-radius: 50% 90px;
@@ -64,18 +64,18 @@
     padding: 30px;
     border-radius: 28px;
     border-style: solid;
-    border-color: var(--dark_purple);
+    border-color: var(--dark_navy);
     border-width: 2px;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     display: flex;
     flex-direction: column;
     transition: border-color .5s;
-    background-color: var(--black-purple);
+    background-color: var(--black-navy);
 }
 
 #projects .hovered {
-    border-color: var(--yg);
+    border-color: var(--cyan);
 }
 
 #projects .project-card::-webkit-scrollbar { 
@@ -142,7 +142,7 @@
     font-size: var(--fs-text);
     font-weight: var(--w-text);
     font-family: var(--f-text);
-    color: var(--light_grey);
+    color: var(--white);
 }
 
 #projects .language-bar {
@@ -156,14 +156,14 @@
     font-weight: var(--w-text);
     font-family: var(--f-text);
     color: var(--light_grey);
-    border: 1px solid var(--purple);
+    border: 1px solid var(--navy);
     transition: all ease .4s;
     border-radius: 10px;
 }
 
 #projects .language-text:hover {
 
-    background-color: var(--dark_purple);
+    background-color: var(--dark_navy);
 }
 
 #projects .github-button {
@@ -171,21 +171,21 @@
     text-align: center;
     padding: 10px;
     border-style: solid;
-    border-color: var(--yg);
-    background-color: var(--yg);
+    border-color: var(--cyan);
+    background-color: var(--cyan);
     border-width: 2px;
     border-radius: 8px;
     font-size: var(--fs-text);
     font-weight: var(--w-button);
     font-family: var(--f-text);
-    color: var(--dark-yg);
+    color: var(--dark-cyan);
     transition: border-color .5s, background-color .5s, color .5s;
 }
 
 #projects .active-project .github-button:hover {
-    border-color: var(--dark-yg);
-    background-color: var(--dark-yg);
-    color: var(--yg);
+    border-color: var(--dark-cyan);
+    background-color: var(--dark-cyan);
+    color: var(--cyan);
 }
 
 #projects .date-cont {
@@ -205,9 +205,9 @@
 }
 
 #projects .grid-bg {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(87 66 185 / .2)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-    mask-image: linear-gradient(to top,  transparent 0%, #fff 30% 70%, transparent 100%),
-                linear-gradient(to left, transparent 0%, #fff 30% 70%, transparent 100%);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(196 196 196 / .2)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+    mask-image: linear-gradient(to top,  transparent 0%, #ffffff 30% 70%, transparent 100%),
+                linear-gradient(to left, transparent 0%, #ffffff 30% 70%, transparent 100%);
     position: absolute;
     top: 0;
     left: 0;
@@ -226,8 +226,8 @@
     height: 84px;
     transform: translate(-50%, -50%) scale(0.2) rotate(45deg);
     border-radius: 100%;
-    background-color: var(--yg);
-    color: var(--dark-yg);
+    background-color: var(--cyan);
+    color: var(--dark-cyan);
     z-index: 120;
     opacity: 0;
     pointer-events: none;
@@ -303,7 +303,7 @@
 
     #projects .img-text-cont {
         flex-direction: column;
-        
+        height: auto;
     }
 
     #projects .img-container {
@@ -314,6 +314,11 @@
 
     #projects .txt-container {
         width: 100%;
+        height: auto;
+    }
+
+    #projects .txt-container p {
+        height: auto;
     }
 
     #projects .language-bar {
