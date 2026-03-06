@@ -88,6 +88,35 @@
   --primary-foreground : 210 40% 98%;
 
   --border : 214 32% 91%;
+
+  /* Cyan */
+  --light-cyan: #cbfcff;
+  --cyan: #5dd1ff3f;
+  --dark-cyan: #ffffff;
+  --black-cyan: #ffffff;
+
+  /* Navy */
+  --navy: #ffffff;
+  --dark_navy: #05080f00;
+  --black-navy: #014460;
+
+  /* Glass morphism */
+  --dark_glass_bg: #0e132e42;
+  --glass_edge: #ffffff1a;
+  --transp_white: #ffffff99;
+
+  /* White */
+  --light_grey: #d7d7d7;
+  --white: #ffffff;
+
+
+  --fs-nav: 14px;
+  --fs-title: clamp(30px, 6vw, 45px);
+  --fs-text: clamp(14px, 3vw, 18px);
+
+  --w-title: 900;
+  --w-button: 750;
+  --w-text: 400;
 }
 
 .dark{
