@@ -90,10 +90,11 @@
   --border : 214 32% 91%;
 
   /* Cyan */
-  --light-cyan: #cbfcff;
-  --cyan: #5dd1ff3f;
+  --light-cyan: #22e2ec;
+  --cyan: #2d8ab9;
   --dark-cyan: #ffffff;
   --black-cyan: #ffffff;
+  --light-blue: #ffffff80;
 
   /* Navy */
   --navy: #ffffff;
