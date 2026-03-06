@@ -100,6 +100,9 @@
   --dark_navy: #05080f00;
   --black-navy: #014460;
 
+  /* Card */
+  --card_bg: #021026cc;
+
   /* Glass morphism */
   --dark_glass_bg: #0e132e42;
   --glass_edge: #ffffff1a;
