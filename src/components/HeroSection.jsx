@@ -4,7 +4,7 @@ export const HeroSection = () => {
     return (
         <section
             id="accueil"
-            className="relative min-h-screen flex items-start pt-100 px-6"
+            className="relative min-h-screen flex items-start pt-32 md:pt-100 px-6"
         >
             {/* Wrapper centré avec largeur max contrôlée */}
             <div className="w-full max-w-[1400px] 2xl:max-w-[1900px] mx-auto ">
