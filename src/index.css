@@ -19,6 +19,7 @@
   --animate-fade-in-delay-3: fade-in 0.7s ease-in-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-in-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
+  --animate-meteor-mobile: meteor-mobile 5s linear infinite;
 
   @keyframes float {
     0%, 
@@ -64,7 +65,20 @@
     100% {
       transform: rotate(215deg) translateX(-500px)  ;
       opacity: 0;
-      /* width: 0; */
+    }
+  }
+
+  @keyframes meteor-mobile {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-250px);
+      opacity: 0;
     }
   }
 
@@ -154,6 +168,7 @@ body{
 }
 
 }
+
 
 @utility container{
   margin-inline: auto;

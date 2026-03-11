@@ -42,7 +42,7 @@ export const Home = () => {
         <img src={`${import.meta.env.BASE_URL}logo.png`} className="logo" alt="Logo" style={{width: "100px"}} />
 
       {/* Thème sombre ou clair */}
-      <ThemeToggle />
+    {/*}  <ThemeToggle /> */}
       {isDarkMode ? <StarBackground /> : <CloudBackground />}
 
       {/* Navbar*/}

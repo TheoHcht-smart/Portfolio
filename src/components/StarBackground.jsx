@@ -14,7 +14,7 @@ export const StarBackground = () => {
         
         const handleResize = () => {
             generateStars();
-          
+            generateMeteors();
         };
         window.addEventListener("resize", handleResize);
         return () => {
@@ -42,7 +42,8 @@ export const StarBackground = () => {
     };
 
     const generateMeteors = () =>{
-        const nbOfMeteors = 30;
+        const isMobile = window.innerWidth <= 768;
+        const nbOfMeteors = isMobile ? 15 : 30;
         const newMeteors = [];
         for ( let i = 0; i < nbOfMeteors; i++){
             newMeteors.push({
@@ -73,7 +74,7 @@ return (
         ))}
 
       {meteors.map((meteor)=>(
-            <div key={meteor.id} className="meteor animate-meteor" style={{
+            <div key={meteor.id} className="meteor animate-meteor-mobile md:animate-meteor" style={{
                 width: meteor.size* 50 + "px" , 
                 height: meteor.size + "px", 
                 left: meteor.x + "%", 

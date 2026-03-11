@@ -30,7 +30,7 @@ export const Contact = () => {
 
     return (
         <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-            <div className="max-w-3/4 mx-auto">
+            <div className="max-w-full md:max-w-3/4 mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-25 text-center">
                     Me <span className="text-primary">contacter.</span>
                 </h2>
