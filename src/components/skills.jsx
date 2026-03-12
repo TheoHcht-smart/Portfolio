@@ -7,7 +7,7 @@ import { technologies } from "./constants/index";
  const Skills = () => {
 
 return (
-    <section id="skills" className="pt-50 pb-50 py-25 px-4 relative">
+    <section id="skills" className="pt-35 pb-25 py-25 px-4 relative">
     <h2 className=" text-3xl md:text-4xl font-bold mb-25 text-center">Compétences <span className="text-primary">techniques</span>.</h2>
     <div className='flex flex-row flex-wrap justify-center gap-10'>
         

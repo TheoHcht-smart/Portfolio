@@ -263,10 +263,6 @@
 
 @media (max-width: 768px) {
 
-    .following-cursor {
-        display: none;
-    }
-
     #projects .project-list-container,
     #projects .project-card,
     #projects .project-card * {
@@ -286,6 +282,11 @@
 }
 
 @media (max-width: 992px) {
+
+        .following-cursor {
+        display: none;
+    }
+
 
     #projects .horizontall-sect {
         margin-bottom: 120px;
