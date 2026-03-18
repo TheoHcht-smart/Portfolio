@@ -1,3 +1,4 @@
+import { tr } from "framer-motion/client";
 import { useEffect, useRef } from "react";
 
 const BASE = import.meta.env.BASE_URL;
@@ -18,17 +19,18 @@ const clouds = [
   { src: `${BASE}imgPara/cloud6.PNG`, top: "13%", startX: "0%",  side: -1, speed: 0.15, width: "250px", opacity: 0.45 },
   // Near layer — fast, wide spread
   { src: `${BASE}imgPara/cloud7.PNG`, top: "28%", startX: "5%",  side: -1, speed: 0.25, width: "340px", opacity: 0.7 },
-  { src: `${BASE}imgPara/cloud8.PNG`, top: "22%", startX: "60%", side: 1,  speed: 0.22, width: "360px", opacity: 0.65 },
+  { src: `${BASE}imgPara/cloud8.PNG`, top: "22%", startX: "45%", side: 1,  speed: 0.22, width: "360px", opacity: 0.65 },
   { src: `${BASE}imgPara/cloud9.PNG`, top: "34%", startX: "75%", side: 1,  speed: 0.28, width: "320px", opacity: 0.6 },
   { src: `${BASE}imgPara/cloud7.PNG`, top: "38%", startX: "40%", side: -1, speed: 0.20, width: "300px", opacity: 0.58 },
   { src: `${BASE}imgPara/cloud9.PNG`, top: "30%", startX: "-5%", side: -1, speed: 0.26, width: "280px", opacity: 0.55 },
 ];
 
 const planes = [
-  { src: `${BASE}imgPara/plane1.png`, top: "8%",  startX: "50%", side: 1,  speed: 0.18, width: "90px", opacity: 0.8, flip: false },
-  { src: `${BASE}imgPara/plane2.png`, top: "26%", startX: "45%", side: -1, speed: 0.15, width: "70px", opacity: 0.6, flip: true },
-  { src: `${BASE}imgPara/plane3.PNG`, top: "16%", startX: "52%", side: 1,  speed: 0.20, width: "80px", opacity: 0.7, flip: false },
-  { src: `${BASE}imgPara/plane4.PNG`, top: "35%", startX: "48%", side: -1, speed: 0.17, width: "75px", opacity: 0.65, flip: true },
+  // startX à l'extérieur, side inversé par rapport aux nuages → vont vers le centre
+  { src: `${BASE}imgPara/plane1.png`, top: "8%",  startX: "78%", side: -1, speed: 0.18, width: "90px", opacity: 0.8, flip: false },
+  { src: `${BASE}imgPara/plane2.png`, top: "26%", startX: "5%",  side: 1,  speed: 0.15, width: "70px", opacity: 0.6, flip: true },
+  { src: `${BASE}imgPara/plane3.PNG`, top: "16%", startX: "87%", side: -1, speed: 0.20, width: "350px", opacity: 0.7, flip: false },
+  { src: `${BASE}imgPara/plane4.PNG`, top: "36%", startX: "15%",  side: 1,  speed: 0.17, width: "150px", opacity: 0.65, flip: true },
 ];
 
 const allItems = [...clouds, ...planes];
