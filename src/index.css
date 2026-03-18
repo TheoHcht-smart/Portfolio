@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme{
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -155,20 +157,28 @@ html{
 }
 
 body{
-  @apply bg-background text-foreground transition-colors duration-300; 
+  @apply text-foreground transition-colors duration-300; 
   font-feature-settings: "rlig"1 , "calt" 1;
-  background-image: radial-gradient(ellipse at bottom, hsl(206, 87%, 67%) ,hsl(219, 100%, 18%) );
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   min-height: 100vh;
 }
 
 .dark body {
-  background-image: none;
+  @apply bg-background;
 }
 
 }
 
+/* Override Tailwind preflight — must be OUTSIDE @layer to win specificity */
+html:not(.dark),
+html:not(.dark) body {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.dark body {
+  background-color: hsl(222 47% 4%) !important;
+  background-image: none !important;
+}
 
 @utility container{
   margin-inline: auto;
