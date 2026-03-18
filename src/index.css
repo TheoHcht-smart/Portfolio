@@ -251,6 +251,32 @@ html:not(.dark) body {
   animation-iteration-count: infinite;
 }
 
+/* Ultrawide-only clouds: hidden on normal screens */
+.ultrawide-cloud {
+  display: none;
+}
+
+@media (min-width: 2560px) {
+  .ultrawide-cloud {
+    display: block;
+  }
+}
+
+/* Desktop clouds: hidden on mobile */
+/* Mobile clouds: hidden on desktop */
+.mobile-cloud {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-cloud {
+    display: none;
+  }
+  .mobile-cloud {
+    display: block;
+  }
+}
+
 .cloud::before,
 .cloud::after {
   content: "";
