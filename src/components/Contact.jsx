@@ -49,7 +49,7 @@ export const Contact = () => {
                                     <h4 className="text-lg font-semibold">Email</h4>
                                     <a
                                         href="mailto:theohuchot.contact@gmail.com"
-                                        className="text-lg text-muted-foreground hover:text-primary transition-colors"
+                                        className="text-lg text-muted-foreground hover:text-white transition-colors"
                                     >
                                         theohuchot.contact@gmail.com
                                     </a>
@@ -109,7 +109,7 @@ export const Contact = () => {
                         </div>
                     </div>
 
-                    <div className="contact-message-card bg-card p-8 rounded-lg shadow-xs">
+                    <div className="contact-message-card hidden md:block bg-card p-8 rounded-lg shadow-xs">
                         <h3 className=" text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
 
                         <form className="space-y-6" onSubmit={handleSubmit}>

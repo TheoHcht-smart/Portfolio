@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -75,9 +75,21 @@ const allUltrawide = [...ultrawideOnlyClouds];
 const allMobile = [...mobileClouds];
 const allRefs = [...allItems, ...allUltrawide, ...allMobile];
 
+const balloons = [
+  { src: `${BASE}imgPara/m1.png`, startX: "10%", startY: "112%", speed: 0.42, width: "140px", opacity: 0.95 },
+  { src: `${BASE}imgPara/m2.PNG`, startX: "48%", startY: "118%", speed: 0.38, width: "100px", opacity: 0.95 },
+  { src: `${BASE}imgPara/m3.PNG`, startX: "78%", startY: "114%", speed: 0.45, width: "145px", opacity: 0.95 },
+];
+
 export const CloudBackground = () => {
   const itemRefs = useRef([]);
+  const balloonRefs = useRef([]);
+  const mountainsRef = useRef(null);
   const rafRef = useRef(null);
+  const aboutStartScrollRef = useRef(null);
+  const balloonsVisibleRef = useRef(false);
+  const [showBalloons, setShowBalloons] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(() => window.innerWidth <= 768);
 
   // Parallax: clouds spread outward, planes come inward
   useEffect(() => {
@@ -85,22 +97,94 @@ export const CloudBackground = () => {
       if (rafRef.current) return;
       rafRef.current = requestAnimationFrame(() => {
         const y = window.scrollY;
+        const isMobileNow = window.innerWidth <= 768;
+        const nextBalloonCount = isMobileNow ? 2 : balloons.length;
+
+        if (isMobileViewport !== isMobileNow) {
+          setIsMobileViewport(isMobileNow);
+        }
+
+        let skillsExitProgress = 0;
+
+        const skillsSection = document.getElementById("skills");
+        if (skillsSection) {
+          const skillsTriggerY = skillsSection.getBoundingClientRect().top + y;
+          const exitStartY = Math.max(0, skillsTriggerY - window.innerHeight * 0.9);
+          const exitDistance = Math.max(1, skillsTriggerY - exitStartY);
+          skillsExitProgress = Math.min(1, Math.max(0, (y - exitStartY) / exitDistance));
+        }
+
+        const aboutSection = document.getElementById("accueil");
+        if (aboutSection) {
+          const aboutTopY = aboutSection.getBoundingClientRect().top + y;
+          const triggerFactor = isMobileNow ? 0.72 : 0.35;
+          const aboutTriggerY = aboutTopY + aboutSection.offsetHeight * triggerFactor;
+          const inAboutOrBelow = y >= aboutTriggerY;
+
+          if (inAboutOrBelow) {
+            if (!balloonsVisibleRef.current) {
+              setShowBalloons(true);
+              balloonsVisibleRef.current = true;
+            }
+            if (aboutStartScrollRef.current === null) {
+              aboutStartScrollRef.current = aboutTriggerY;
+            }
+          } else {
+            if (balloonsVisibleRef.current) {
+              setShowBalloons(false);
+              balloonsVisibleRef.current = false;
+            }
+            aboutStartScrollRef.current = null;
+          }
+        }
+
         allRefs.forEach((item, i) => {
           const el = itemRefs.current[i];
           if (el) {
             const xOffset = y * item.speed * item.side;
+            const movementSide = Math.sign(item.side) || 1;
+            const exitOffset = movementSide * window.innerWidth * 1.8 * skillsExitProgress;
             const flip = item.flip ? 'scaleX(-1)' : '';
-            el.style.transform = `translate3d(${xOffset}px, 0, 0) ${flip}`;
+            el.style.transform = `translate3d(${xOffset + exitOffset}px, 0, 0) ${flip}`;
           }
         });
+
+        const mountainsEl = mountainsRef.current;
+        if (mountainsEl) {
+          const doc = document.documentElement;
+          const distanceToBottom = Math.max(0, doc.scrollHeight - (y + window.innerHeight));
+          const revealRange = Math.max(1, window.innerHeight * 0.7);
+          const revealProgress = Math.min(1, Math.max(0, 1 - distanceToBottom / revealRange));
+          const settleOffset = mountainsEl.clientHeight * 0.28;
+          const lift = (1 - revealProgress) * 28;
+
+          mountainsEl.style.opacity = String(revealProgress);
+          mountainsEl.style.transform = `translate3d(0, ${settleOffset + lift}px, 0)`;
+        }
+
+        if (aboutStartScrollRef.current !== null) {
+          const progress = Math.max(0, y - aboutStartScrollRef.current);
+          balloons.slice(0, nextBalloonCount).forEach((balloon, i) => {
+            const el = balloonRefs.current[i];
+            if (el) {
+              const yOffset = progress * balloon.speed;
+              el.style.transform = `translate3d(0, -${yOffset}px, 0)`;
+            }
+          });
+        }
+
         rafRef.current = null;
       });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
     };
   }, []);
 
@@ -111,6 +195,23 @@ export const CloudBackground = () => {
 
       {/* Horizon glow */}
       <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-white/60 to-transparent" />
+
+      {/* Mountains revealed near bottom of the page */}
+      <img
+        ref={mountainsRef}
+        src={`${BASE}imgPara/mountains.png`}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+        decoding="async"
+        className="absolute inset-x-0 bottom-0 w-full h-auto select-none pointer-events-none"
+        style={{
+          opacity: 0,
+          transform: "translate3d(0, 260px, 0)",
+          willChange: "transform, opacity",
+          backfaceVisibility: "hidden",
+        }}
+      />
 
       {/* All clouds & planes — desktop only */}
       {allItems.map((item, i) => (
@@ -172,6 +273,28 @@ export const CloudBackground = () => {
             width: item.width,
             height: "auto",
             opacity: item.opacity,
+            willChange: "transform",
+            backfaceVisibility: "hidden",
+          }}
+        />
+      ))}
+
+      {/* Balloons appear from #about and then rise on Y axis */}
+      {showBalloons && balloons.slice(0, isMobileViewport ? 2 : balloons.length).map((balloon, i) => (
+        <img
+          key={`balloon-${i}`}
+          ref={(el) => { balloonRefs.current[i] = el; }}
+          src={balloon.src}
+          alt=""
+          draggable={false}
+          decoding="async"
+          className="absolute select-none"
+          style={{
+            left: balloon.startX,
+            top: balloon.startY,
+            width: balloon.width,
+            height: "auto",
+            opacity: balloon.opacity,
             willChange: "transform",
             backfaceVisibility: "hidden",
           }}
