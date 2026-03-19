@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // id , taille , x, y , opacity, animationDurée
 // id , taille , x, y , delay , animationDurée
@@ -7,12 +7,33 @@ export const StarBackground = () => {
 
     const [stars, setStars] = useState([]);
     const [meteors, setMeteors] = useState([]);
+    const lastSizeRef = useRef({ width: 0, height: 0, isMobile: false });
 
     useEffect(() => {
         generateStars();
         generateMeteors();
+
+        lastSizeRef.current = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            isMobile: window.innerWidth <= 768,
+        };
         
         const handleResize = () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const isMobile = width <= 768;
+            const previous = lastSizeRef.current;
+
+            // iOS triggers resize on scroll due to browser chrome show/hide.
+            // On mobile, only regenerate when width changes or breakpoint changes.
+            const shouldRegenerate = isMobile
+                ? previous.width !== width || previous.isMobile !== isMobile
+                : previous.width !== width || previous.height !== height || previous.isMobile !== isMobile;
+
+            if (!shouldRegenerate) return;
+
+            lastSizeRef.current = { width, height, isMobile };
             generateStars();
             generateMeteors();
         };
