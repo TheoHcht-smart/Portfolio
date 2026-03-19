@@ -20,7 +20,7 @@
 		},
 
 		{
-			"title": "Algorythme de statistiques de main de poker",
+			"title": "Algorithme statistique de poker",
 			"description": "Projet universitaire de développement d'un algorithme de statistiques de main de poker. <br><br> L'algorithme permet d'analyser les mains d'une partie de poker. Il nous donne les statistiques d'avoir une main au poker (paire, brelan, etc.) sur X parties.",
 			"languages": [ "Typescript","Git" ],
 			"link": "https://github.com/TheoHcht-smart/pokerstats",

@@ -66,8 +66,8 @@ const mobileClouds = [
   { src: `${BASE}imgPara/cloud7.PNG`, top: "30%", startX: "20%", side: -1, speed: 0.18, width: "200px", opacity: 0.6 },
   { src: `${BASE}imgPara/cloud9.PNG`, top: "38%", startX: "50%", side: 1,  speed: 0.20, width: "190px", opacity: 0.55 },
   // Mobile planes — from outside toward center
-  { src: `${BASE}imgPara/plane1.png`, top: "12%", startX: "70%", side: -1, speed: 0.14, width: "60px", opacity: 0.75, flip: false },
-  { src: `${BASE}imgPara/plane2.png`, top: "34%", startX: "5%",  side: 1,  speed: 0.12, width: "50px", opacity: 0.6, flip: true },
+  { src: `${BASE}imgPara/plane1.png`, top: "12%", startX: "70%", side: -1, speed: 0.14, width: "450px", opacity: 0.75, flip: false },
+  { src: `${BASE}imgPara/plane2.png`, top: "34%", startX: "5%",  side: 1,  speed: 0.12, width: "90px", opacity: 0.6, flip: true },
 ];
 
 const allItems = [...clouds, ...planes];
@@ -107,7 +107,7 @@ export const CloudBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 dark:hidden">
       {/* Gradient sky */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #87CEEB, #b8dff5 50%, #ddeefb)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #4fb5e0, #99d8fc 50%, #6b8da7)" }} />
 
       {/* Horizon glow */}
       <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-white/60 to-transparent" />
