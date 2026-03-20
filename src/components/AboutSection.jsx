@@ -48,7 +48,7 @@ export const AboutSection = () => {
                         </a>
                     </div>
                 </div>
-            <div className="grid grid-cols-1 gap-6">
+            <div className="hidden md:grid grid-cols-1 gap-6">
                 <div className="gradient-border p-6 card-hover">
                     <div className="flex items-start gap-4">
                         <div className="p-3 rounded-full bg-primary/10">

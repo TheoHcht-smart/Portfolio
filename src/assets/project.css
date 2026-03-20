@@ -97,6 +97,7 @@
     width: 100%;
     margin-bottom: 15px;
     height: 100%;
+    flex: 1;
 }
 
 #projects .img-container {
@@ -116,6 +117,7 @@
 
 #projects .txt-container {
     height: 100%;
+    min-height: var(--project-txt-height, auto);
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -147,6 +149,7 @@
 
 #projects .language-bar {
     display: flex;
+    margin-top: auto;
 }
 
 #projects .language-text {
@@ -316,6 +319,7 @@
     #projects .txt-container {
         width: 100%;
         height: auto;
+        min-height: auto;
     }
 
     #projects .txt-container p {

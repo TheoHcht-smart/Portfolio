@@ -34,6 +34,30 @@ export default function Projects() {
     setProjects(normalizedProjects);
   }, []);
 
+  useEffect(() => {
+    const updateUniformTextHeight = () => {
+      if (!containerRef.current) return;
+      const textBlocks = Array.from(containerRef.current.querySelectorAll(".txt-container"));
+      if (!textBlocks.length) return;
+
+      let maxHeight = 0;
+      textBlocks.forEach((block) => {
+        const height = block.getBoundingClientRect().height;
+        if (height > maxHeight) maxHeight = height;
+      });
+
+      containerRef.current.style.setProperty("--project-txt-height", `${Math.ceil(maxHeight)}px`);
+    };
+
+    const raf = requestAnimationFrame(updateUniformTextHeight);
+    window.addEventListener("resize", updateUniformTextHeight);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", updateUniformTextHeight);
+    };
+  }, [projects]);
+
   // Scroll to active card on resize
   useEffect(() => {
     const handleResize = () => {
@@ -169,7 +193,7 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className=" pt-35 px-4 relative" >
+      <section id="projects" className="pt-0 px-0 md:pt-35 md:px-4 relative" >
         <div className="project-cont" style={{ position: "relative" }}>
           <div className="grid-bg" aria-hidden="true" />
           <h2 className=" text-3xl md:text-4xl font-bold mb-12 text-center">Mes <span className="text-primary">projets</span>.</h2>

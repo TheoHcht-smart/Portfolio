@@ -114,20 +114,23 @@ export const CloudBackground = () => {
           skillsExitProgress = Math.min(1, Math.max(0, (y - exitStartY) / exitDistance));
         }
 
-        const aboutSection = document.getElementById("accueil");
-        if (aboutSection) {
-          const aboutTopY = aboutSection.getBoundingClientRect().top + y;
-          const triggerFactor = isMobileNow ? 0.72 : 0.35;
-          const aboutTriggerY = aboutTopY + aboutSection.offsetHeight * triggerFactor;
-          const inAboutOrBelow = y >= aboutTriggerY;
+        const triggerSection = isMobileNow
+          ? document.getElementById("projects")
+          : document.getElementById("accueil");
 
-          if (inAboutOrBelow) {
+        if (triggerSection) {
+          const triggerTopY = triggerSection.getBoundingClientRect().top + y;
+          const triggerFactor = isMobileNow ? 0 : 0.35;
+          const balloonTriggerY = triggerTopY + triggerSection.offsetHeight * triggerFactor;
+          const inTriggerOrBelow = y >= balloonTriggerY;
+
+          if (inTriggerOrBelow) {
             if (!balloonsVisibleRef.current) {
               setShowBalloons(true);
               balloonsVisibleRef.current = true;
             }
             if (aboutStartScrollRef.current === null) {
-              aboutStartScrollRef.current = aboutTriggerY;
+              aboutStartScrollRef.current = balloonTriggerY;
             }
           } else {
             if (balloonsVisibleRef.current) {
@@ -279,7 +282,7 @@ export const CloudBackground = () => {
         />
       ))}
 
-      {/* Balloons appear from #about and then rise on Y axis */}
+      {/* Balloons appear from #skills on mobile and from #accueil on desktop */}
       {showBalloons && balloons.slice(0, isMobileViewport ? 2 : balloons.length).map((balloon, i) => (
         <img
           key={`balloon-${i}`}
