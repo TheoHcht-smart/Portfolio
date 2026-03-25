@@ -39,7 +39,7 @@ export const Home = () => {
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
       {!isMobile && <CursorTrail />}
-        <img src={`${import.meta.env.BASE_URL}logo.png`} className="logo max-sm:hidden" alt="Logo" style={{width: "100px"}} />
+  
 
       {/* Thème sombre ou clair */}
     {  <ThemeToggle /> }

@@ -1,14 +1,36 @@
 import { Github, LinkedinIcon, Mail, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 
 
 export const Contact = () => {
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: "",
     });
+
+    useEffect(() => {
+        const element = sectionRef.current;
+        if (!element) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(element);
+
+        return () => observer.disconnect();
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,18 +51,18 @@ export const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+        <section id="contact" className="py-24 px-4 relative bg-secondary/30" ref={sectionRef}>
             <div className="max-w-full md:max-w-3/4 mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold mb-25 text-center">
+                <h2 className={`text-3xl md:text-4xl font-bold mb-25 text-center opacity-0 ${isVisible ? "animate-fade-in" : ""}`}>
                     Me <span className="text-primary">contacter.</span>
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"></p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="space-y-8">
+                    <div className={`space-y-8 opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
                         <h3 className="hidden md:block text-2xl font-semibold mb-30">Informations de contact</h3>
 
-                        <div className="space-y-6">
+                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
                             <div className="flex items-start space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Mail className="h-6 w-6 text-primary" />
@@ -57,7 +79,7 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>
                             <div className="flex items-start space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <LinkedinIcon className="h-6 w-6 text-primary" />
@@ -74,7 +96,7 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-3" : ""}`}>
                             <div className="flex items-start space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Github className="h-6 w-6 text-primary" />
@@ -91,7 +113,7 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-4" : ""}`}>
                             <div className="flex items-start space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <MapPin className="h-6 w-6 text-primary" />
@@ -109,7 +131,7 @@ export const Contact = () => {
                         </div>
                     </div>
 
-                    <div className="contact-message-card hidden md:block bg-card p-8 rounded-lg shadow-xs">
+                    <div className={`contact-message-card hidden md:block bg-card p-8 rounded-lg shadow-xs opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>
                         <h3 className=" text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
 
                         <form className="space-y-6" onSubmit={handleSubmit}>

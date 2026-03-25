@@ -3,7 +3,7 @@
 	[
 		{
 			"title": "Smart Planner",
-			"description": "Smart planner est un projet d'application web de planification intelligente. <br><br> L'application des algorithmes d'optimisation pour générer des plannings efficaces en fonction des contraintes et des préférences de l'utilisateur. D'autres features incluent la prévision de couverts, gestion de masse salariale et la perfomance mensuel.",
+			"description": "Smart planner est un projet d'application web de planification intelligente. <br><br> L'application des algorithmes d'optimisation pour générer des plannings efficaces en fonction des contraintes et des préférences de l'utilisateur. D'autres features incluent la prévision de couverts, gestion de masse salariale et la performance mensuelle.",
 			"languages": ["React", "Python","Git", "Api"],
 			"link": "https://smart-planner.fr",
 			"image": "../public/imgProjects/smartplanner.png",
@@ -12,7 +12,7 @@
 
 		{
 			"title": "Classification de graphiques boursiers avec TensorFlow.",
-			"description": "Petit projet réalisé pour explorer et comprendre le fonctionnement de TensorFlow et des réseaux de neurones..<br><br> Cet algorithme de deep learning a été entraîné à partir de 50 images de graphiques baissiers et de 50 images de graphiques haussiers.<br><br> Après l’entraînement, le modèle est capable d’analyser l’image d’un graphique et de déterminer si la tendance est haussière ou baissière.",
+			"description": "Petit projet réalisé pour explorer et comprendre le fonctionnement de TensorFlow et des réseaux de neurones.<br><br> Cet algorithme de deep learning a été entraîné à partir de 50 images de graphiques baissiers et de 50 images de graphiques haussiers.<br><br> Après l’entraînement, le modèle est capable d’analyser l’image d’un graphique et de déterminer si la tendance est haussière ou baissière.",
 			"languages": [ "Python","Git", "Tensorflow"],
 			"link": "https://github.com/TheoHcht-smart/chart_ia",
 			"image": "../public/imgProjects/chart.png",

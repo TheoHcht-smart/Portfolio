@@ -29,7 +29,7 @@ export const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-fade-in-delay-4">
-                        Je m'appelle Théo Huchot, j'ai 22 ans et je suis étudiant en informatique.
+                        Je m'appelle Théo Huchot, j'ai 23 ans et je suis étudiant en informatique.
                         <br />
                         Je suis passionné par le développement d'applications web et d'automatisation.
                     </p>
