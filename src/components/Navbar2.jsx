@@ -12,6 +12,7 @@ const navItems = [
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navRef = useRef(null);
     const selectorRef = useRef(null);
@@ -20,10 +21,16 @@ export const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
+
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+            setScrollProgress(Math.min(100, Math.max(0, progress)));
+
             updateSelector();
         };
 
         window.addEventListener("scroll", handleScroll);
+        handleScroll();
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -120,6 +127,13 @@ export const Navbar = () => {
 
     return (
         <header id="header">
+            <div className="scroll-progress-track" aria-hidden="true">
+                <div
+                    className="scroll-progress-bar"
+                    style={{ transform: `scaleX(${scrollProgress / 100})` }}
+                />
+            </div>
+
             <nav className="navbar" ref={navRef}>
                 <button
                     type="button"

@@ -54,7 +54,7 @@ export const Contact = () => {
         <section id="contact" className="py-24 px-4 relative bg-secondary/30" ref={sectionRef}>
             <div className="max-w-full md:max-w-3/4 mx-auto">
                 <h2 className={`text-3xl md:text-4xl font-bold mb-25 text-center opacity-0 ${isVisible ? "animate-fade-in" : ""}`}>
-                    Me <span className="text-primary">contacter.</span>
+                    Me <span className="text-primary">contacter</span>.
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"></p>
 
@@ -62,10 +62,10 @@ export const Contact = () => {
                     <div className={`space-y-8 opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
                         <h3 className="hidden md:block text-2xl font-semibold mb-30">Informations de contact</h3>
 
-                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
+                        <div className={`space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Mail className="h-6 w-6 text-primary" />
+                                <div className="p-3 rounded-full bg-primary/30">
+                                    <Mail className="h-6 w-6" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold">Email</h4>
@@ -79,56 +79,62 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>
+                        <a
+                            href="https://fr.linkedin.com/in/th%C3%A9o-huchot-923a6b263"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}
+                        >
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <LinkedinIcon className="h-6 w-6 text-primary" />
+                                <div className="p-3 rounded-full bg-primary/30">
+                                    <LinkedinIcon className="h-6 w-6" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold">LinkedIn</h4>
-                                    <a
-                                        href="https://fr.linkedin.com/in/th%C3%A9o-huchot-923a6b263"
-                                        className="text-lg text-muted-foreground hover:text-primary transition-colors"
-                                    >
+                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
                                         Théo Huchot
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-3" : ""}`}>
+                        <a
+                            href="https://github.com/TheoHcht-smart"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-3" : ""}`}
+                        >
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Github className="h-6 w-6 text-primary" />
+                                <div className="p-3 rounded-full bg-primary/30">
+                                    <Github className="h-6 w-6 " />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold">GitHub</h4>
-                                    <a
-                                        href="https://github.com/TheoHcht-smart"
-                                        className="text-lg text-muted-foreground hover:text-primary transition-colors"
-                                    >
+                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
                                         TheoHcht-smart
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div className={`space-y-6 card-hover p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-primary/15 opacity-0 ${isVisible ? "animate-fade-in-delay-4" : ""}`}>
+                        <a
+                            href="https://www.google.com/maps/place/Metz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-4" : ""}`}
+                        >
                             <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <MapPin className="h-6 w-6 text-primary" />
+                                <div className="p-3 rounded-full bg-primary/30">
+                                    <MapPin className="h-6 w-6" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold">Adresse</h4>
-                                    <a
-                                        href="https://www.google.com/maps/place/Metz"
-                                        className="text-lg text-muted-foreground hover:text-primary transition-colors"
-                                    >
+                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
                                         Metz, Moselle, France
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div className={`contact-message-card hidden md:block bg-card p-8 rounded-lg shadow-xs opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>

@@ -378,3 +378,31 @@ html:not(.dark) #root .about-skill-text {
 .dark #contact .contact-message-card textarea::placeholder {
   color: hsl(213 16% 70%);
 }
+
+#header .scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  backdrop-filter: blur(16px) saturate(1.4);
+  z-index: 1200;
+  pointer-events: none;
+}
+
+#header .scroll-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--light-cyan), var(--cyan));
+  transition: transform 0.15s linear;
+}
+
+html:not(.dark) #header .scroll-progress-bar {
+  background: linear-gradient(90deg, #000000, #777777);
+}
