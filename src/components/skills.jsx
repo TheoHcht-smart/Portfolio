@@ -4,19 +4,61 @@ import BallCanvas from "./canva/ball.jsx";
 import SectionWrapper from "./hoc/SectionWrapper.jsx";
 import { technologies } from "./constants/index";
 
- const Skills = () => {
+const orbitConfig = [
+  { size: "40%", duration: "18s", direction: "normal", angles: ["25deg", "205deg"] },
+  { size: "55%", duration: "24s", direction: "reverse", angles: ["-12deg", "118deg", "246deg"] },
+  { size: "70%", duration: "32s", direction: "normal", angles: ["72deg", "252deg"] },
+  { size: "90%", duration: "40s", direction: "reverse", angles: ["20deg", "145deg", "270deg"] },
+];
 
-return (
-    <section id="skills" className="pt-35 pb-25 py-25 px-4 relative">
-    <h2 className=" text-3xl md:text-4xl font-bold mb-25 text-center">Compétences <span className="text-primary">techniques</span>.</h2>
-    <div className='flex flex-row flex-wrap justify-center gap-6 md:gap-10'>
-        
-      {technologies.map((technology) => (
-        <div className='w-15 h-20 md:w-28 md:h-28' key={technology.name}>
-          <BallCanvas icon={technology.icon} />
+const Skills = () => {
+  let startIndex = 0;
+
+  const orbits = orbitConfig.map((orbit) => {
+    const items = technologies.slice(startIndex, startIndex + orbit.angles.length);
+    startIndex += orbit.angles.length;
+    return { ...orbit, items };
+  });
+
+  return (
+    <section id="skills" className="pt-35 pb-25 py-25 px-4 relative flex flex-col items-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-14 text-center w-full">
+        Système <span className="text-primary">des compétences</span>.
+      </h2>
+
+      <div className="skills-solar mx-auto">
+        <div className="skills-core">
+          <span>Skills</span>
         </div>
-      ))}
-    </div>
+
+        {orbits.map((orbit, orbitIndex) => (
+          <div
+            key={`orbit-${orbitIndex}`}
+            className="skills-orbit-ring"
+            style={{
+              "--orbit-size": orbit.size,
+              "--orbit-duration": orbit.duration,
+              "--orbit-direction": orbit.direction,
+            }}
+          >
+            {orbit.items.map((technology, itemIndex) => (
+              <div
+                key={technology.name}
+                className="skills-orbit-ball"
+                style={{
+                  "--ball-angle": orbit.angles[itemIndex],
+                  zIndex: orbits.length - orbitIndex,
+                }}
+                title={technology.name}
+              >
+                <div className="skills-orbit-ball-inner">
+                  <BallCanvas icon={technology.icon} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

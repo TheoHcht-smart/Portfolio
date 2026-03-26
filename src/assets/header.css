@@ -126,7 +126,7 @@
 }
 
 #header .active-nav-svg .poly-svg-nav-light {
-    fill: var(--light-cyan);
+    fill: var(--white);
 }
 
 #header .active-nav-svg .poly-svg-nav-base {

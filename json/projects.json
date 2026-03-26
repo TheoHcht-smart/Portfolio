@@ -11,7 +11,7 @@
 		},
 
 		{
-			"title": "Classification de graphiques boursiers avec TensorFlow.",
+			"title": "Classification de graphiques boursiers.",
 			"description": "Petit projet réalisé pour explorer et comprendre le fonctionnement de TensorFlow et des réseaux de neurones.<br><br> Cet algorithme de deep learning a été entraîné à partir de 50 images de graphiques baissiers et de 50 images de graphiques haussiers.<br><br> Après l’entraînement, le modèle est capable d’analyser l’image d’un graphique et de déterminer si la tendance est haussière ou baissière.",
 			"languages": [ "Python","Git", "Tensorflow"],
 			"link": "https://github.com/TheoHcht-smart/chart_ia",
