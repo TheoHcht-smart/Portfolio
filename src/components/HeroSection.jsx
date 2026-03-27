@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, MapPin } from "lucide-react";
 
 export const HeroSection = () => {
     return (
@@ -11,19 +11,30 @@ export const HeroSection = () => {
                 
                 {/* Contenu aligné à droite dans le wrapper */}
                 <div className="max-w-3xl ml-auto text-left z-10 space-y-6 ">
+                    <a
+                        href="https://www.google.com/maps/place/Metz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_10px_25px_rgba(0,0,0,0.15)] opacity-0 animate-fade-in"
+                    >
+                        <MapPin className="h-4 w-4" />
+                        Metz
+                    </a>
                     
-                    <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
+                    <h1
+                     className="text-3xl md:text-6xl font-bold tracking-tight">
+                    
                         <span className="text-primary opacity-0 animate-fade-in">
                             Huchot Théo
                         </span>
                         <br />
-                        <span className="opacity-0 animate-fade-in-delay-1">
-                            étudiant
+                        <span className="italic opacity-0 animate-fade-in-delay-1">
+                            Etudiant
                         </span>
-                        <span className="ml-2 opacity-0 animate-fade-in-delay-2">
+                        <span className="ml-2 italic opacity-0 animate-fade-in-delay-2">
                             en
                         </span>
-                        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
+                        <span className="text-gradient ml-2 italic opacity-0 animate-fade-in-delay-3">
                             informatique.
                         </span>
                     </h1>

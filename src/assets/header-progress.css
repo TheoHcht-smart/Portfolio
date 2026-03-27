@@ -1,0 +1,26 @@
+#header .scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+#header .scroll-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  border-radius: inherit;
+  background: var(--cyan);
+  transition: transform 0.15s linear;
+}
+
+html:not(.dark) #header .scroll-progress-bar {
+  background: #000000;
+}

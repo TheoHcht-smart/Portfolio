@@ -33,16 +33,16 @@ export const AboutSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div
-                    className={`space-y-4 card-hover p-4 rounded-lg white-glass opacity-0 ${
+                    className={`space-y-4 card-hover p-4 rounded-lg glass-panel opacity-0 ${
                         isVisible ? "animate-fade-in-delay-1" : ""
                     }`}
                 >
                     <p className="text-md  text-muted-foreground ">
                     Je suis actuellement en 2ème année de BUT Informatique, parcours réalisation d’applications, à l’IUT de Metz.
                     </p>
-                    <p className="text-md  text-muted-foreground">Passionné par le développement et l’entrepreneuriat, j’ai eu l’opportunité en 2021, pendant la période du Covid, de co-créer une entreprise de e-commerce avec trois amis, en parallèle de mes études. Cette expérience m’a permis de développer une forte capacité de travail en autonomie, de prise de décision, ainsi qu’une compréhension concrète de la complexité de la création et de la gestion d’une entreprise.</p>
-                    <p className="text-md  text-muted-foreground">J’y ai également acquis des compétences en organisation, en optimisation des processus et en gestion des priorités, notamment en mettant en place des systèmes de to-do lists priorisées ainsi qu’une planification hebdomadaire structurée, réalisée en amont chaque semaine, tout en conservant des créneaux dédiés aux imprévus. Cette rigueur m’a permis de concilier efficacement le développement de ce projet avec la réussite de mon baccalauréat.</p>
-                    <p className="text-md  text-muted-foreground">Au cours de ma formation, j’ai réalisé plusieurs projets académiques ainsi qu’un projet professionnel en collaboration avec deux développeurs, consistant à concevoir une application web de gestion de planning et de prévision de clientèle pour un restaurant. Développé dans le cadre de mon expérience en restauration, ce projet répondait à des problématiques concrètes d’optimisation de la masse salariale et des plannings. Il m’a permis de renforcer mes compétences techniques en développement web tout en développant ma capacité à travailler efficacement en équipe sur un projet réel.</p>
+                    <p className="text-md  text-muted-foreground">Passionné par le développement et l’entrepreneuriat, j’ai co-créé en 2021 un projet e-commerce avec trois amis. Cette expérience m’a apporté de l’autonomie, de la rigueur et une première vision concrète de la gestion de projet.</p>
+                    <p className="text-md  text-muted-foreground">Elle m’a aussi appris à mieux organiser mon travail, prioriser mes tâches et concilier un projet personnel avec mes études.</p>
+                    <p className="text-md  text-muted-foreground">Au cours de ma formation, j’ai également réalisé plusieurs projets académiques ainsi qu’un projet professionnel avec deux développeurs autour d’une application web de gestion de planning et de prévision de clientèle pour un restaurant. Cette expérience a renforcé mes compétences techniques et mon efficacité en équipe sur un projet concret.</p>
                     <div className="flex flex-wrap gap-3 justify-center">
                         <a
                             href="https://github.com/Mirecos"

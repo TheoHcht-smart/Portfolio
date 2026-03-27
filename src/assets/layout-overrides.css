@@ -1,0 +1,107 @@
+/* Global layout overrides */
+html:not(.dark),
+html:not(.dark) body {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.dark body {
+  background-color: hsl(222 47% 4%) !important;
+  background-image: none !important;
+}
+
+.cloud {
+  position: absolute;
+  left: -220px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  filter: blur(0.5px);
+  animation-name: cloud-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.ultrawide-cloud {
+  display: none;
+}
+
+@media (min-width: 2560px) {
+  .ultrawide-cloud {
+    display: block;
+  }
+}
+
+.mobile-cloud {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-cloud {
+    display: none;
+  }
+
+  .mobile-cloud {
+    display: block;
+  }
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.cloud::before {
+  width: 42%;
+  height: 125%;
+  left: 14%;
+  top: -52%;
+}
+
+.cloud::after {
+  width: 36%;
+  height: 105%;
+  right: 14%;
+  top: -38%;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+html:not(.dark) #root {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+
+html:not(.dark) #root .text-primary {
+  text-shadow: none;
+}
+
+html:not(.dark) #root .contact-message-card {
+  text-shadow: none;
+}
+
+html:not(.dark) #root .about-skill-text {
+  text-shadow: none;
+}
+
+.dark #root {
+  text-shadow: none;
+}
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+}

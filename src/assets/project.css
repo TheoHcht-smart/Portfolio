@@ -14,13 +14,25 @@
     position: relative;
     background-color: var(--dark_navy);
     margin-bottom: -101px;
-    overflow: hidden;
-    border-bottom-left-radius: 50% 90px;
-    border-bottom-right-radius: 50% 90px;
 }
 
 #projects .last-about-comp {
     margin-bottom: 100px;
+}
+
+#projects .content-pad {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1600px;
+}
+
+#projects .clip-path {
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    padding-bottom: 0.25rem;
 }
 
 #projects .horizontall-sect {
@@ -53,6 +65,10 @@
     flex-direction: row;
 }
 
+#projects .project-list-spacer {
+    width: 100%;
+}
+
 #projects .project-card {
     box-sizing: border-box;
     cursor: pointer;
@@ -82,10 +98,6 @@
     display: none;  /* Safari and Chrome */
 }
  
-#projects .content-pad {
-    padding: 0;
-}
-
 #projects .spacer {
     flex: 0 0 auto;
     width: 20%;
@@ -97,7 +109,6 @@
     width: 100%;
     margin-bottom: 15px;
     height: 100%;
-    flex: 1;
 }
 
 #projects .img-container {
@@ -117,10 +128,10 @@
 
 #projects .txt-container {
     height: 100%;
-    min-height: var(--project-txt-height, auto);
     width: 60%;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 #projects .txt-container h3 {
@@ -136,7 +147,11 @@
 }
 
 #projects .txt-container p {
-    height: 100%;
+    flex: 1;
+    min-height: 0;
+    max-height: 260px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 15px;
     margin:0;
     
@@ -147,9 +162,26 @@
     color: var(--white);
 }
 
+#projects .txt-container p::-webkit-scrollbar {
+    width: 8px;
+}
+
+#projects .txt-container p::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#projects .txt-container p::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+}
+
+#projects .txt-container p {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
 #projects .language-bar {
     display: flex;
-    margin-top: auto;
 }
 
 #projects .language-text {
@@ -240,6 +272,36 @@
     transition: opacity 0.2s ease;
 }
 
+.following-cursor.following-cursor--git,
+.following-cursor.following-cursor--web {
+    background-color: transparent;
+    color: #fff;
+}
+
+.following-cursor.following-cursor--left,
+.following-cursor.following-cursor--right {
+    background-color: transparent;
+    color: #fff;
+}
+
+.following-cursor.following-cursor--left .cursor-icon.visible path,
+.following-cursor.following-cursor--right .cursor-icon.visible path {
+    stroke: #000;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    paint-order: stroke fill;
+}
+
+.following-cursor.following-cursor--git .cursor-icon.visible path,
+.following-cursor.following-cursor--web .cursor-icon.visible path {
+    stroke: #000;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    paint-order: stroke fill;
+}
+
 .following-cursor.visible {
     opacity: 1;
 }
@@ -265,11 +327,14 @@
 
 
 @media (max-width: 768px) {
-
     #projects .project-list-container,
     #projects .project-card,
     #projects .project-card * {
         cursor: auto;
+    }
+
+    .following-cursor {
+        display: none;
     }
 
     #projects .project-card {
@@ -285,12 +350,6 @@
 }
 
 @media (max-width: 992px) {
-
-        .following-cursor {
-        display: none;
-    }
-
-
     #projects .horizontall-sect {
         margin-bottom: 120px;
     }
@@ -301,13 +360,10 @@
 
     #projects .project-cont {
         margin-bottom: -51px;
-        border-bottom-left-radius: 50% 45px;
-        border-bottom-right-radius: 50% 45px;
     }
 
     #projects .img-text-cont {
         flex-direction: column;
-        height: auto;
     }
 
     #projects .img-container {
@@ -318,12 +374,10 @@
 
     #projects .txt-container {
         width: 100%;
-        height: auto;
-        min-height: auto;
     }
 
     #projects .txt-container p {
-        height: auto;
+        max-height: 220px;
     }
 
     #projects .language-bar {

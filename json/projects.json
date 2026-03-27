@@ -3,7 +3,7 @@
 	[
 		{
 			"title": "Smart Planner",
-			"description": "Smart planner est un projet d'application web de planification intelligente. <br><br> L'application des algorithmes d'optimisation pour générer des plannings efficaces en fonction des contraintes et des préférences de l'utilisateur. D'autres features incluent la prévision de couverts, gestion de masse salariale et la performance mensuelle.",
+			"description": "Smart planner est Saas de planification intelligente. <br><br> L'application utilise des algorithmes d'optimisation pour générer des plannings efficaces en fonction des contraintes et des préférences de l'utilisateur. D'autres features incluent la prévision de couverts, gestion de masse salariale et la performance mensuelle.",
 			"languages": ["React", "Python","Git", "Api"],
 			"link": "https://smart-planner.fr",
 			"image": "../public/imgProjects/smartplanner.png",
@@ -26,6 +26,15 @@
 			"link": "https://github.com/TheoHcht-smart/pokerstats",
 			"image": "../public/imgProjects/poker.png",
 			"date": "2022"
+		},
+
+		{
+			"title":"E-commerce & entrepreneuriat",
+			"description": "Projet entrepreneurial autour d'une activité e-commerce, en parallèle de mes études. <br><br> Cette expérience m'a permis de développer une forte capacité de travail en autonomie, de prise de décision, ainsi qu'une compréhension concrète de la complexité de la création et de la gestion d'une entreprise. <br><br> J'y ai également acquis des compétences en organisation, en optimisation des processus et en gestion des priorités, notamment grâce à la mise en place de to-do lists priorisées et d'une planification hebdomadaire structurée, tout en conservant des créneaux dédiés aux imprévus. <br><br> Cette rigueur m'a permis de concilier efficacement le développement de ce projet avec la réussite de mon baccalauréat.",
+			"languages": [ "E-commerce", "Gestion de projet", "Shopify", "Tiktok ads" ],
+			"link": "https://www.facebook.com/ApoLightt/",
+			"image": "../public/imgProjects/apolight.jpg",
+			"date": "2021"
 		}
     ]
 }

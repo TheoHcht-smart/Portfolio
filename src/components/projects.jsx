@@ -85,7 +85,8 @@ export default function Projects() {
     if (!cardElement) return;
     if (idx === activeIdx) {
       const isSmartPlanner = projects[idx]?.title?.toLowerCase() === "smart planner";
-      setCursorIcon(isSmartPlanner ? "web" : "git");
+      const isEcom = projects[idx]?.title?.toLowerCase() === "e-commerce & entrepreneuriat";
+      setCursorIcon(isSmartPlanner ? "web" : isEcom ? "web" : "git");
       return;
     }
 
@@ -191,96 +192,68 @@ export default function Projects() {
     }
   };
 
+  const getProjectCtaLabel = (projectTitle) => (
+    projectTitle === "Smart Planner" || projectTitle === "E-commerce & entrepreneuriat" ? "Voir le site" : "Voir le Github"
+  );
+
   return (
     <>
-      <section id="projects" className="pt-0 px-0 md:pt-35 md:px-4 relative" >
-        <div className="project-cont" style={{ position: "relative" }}>
+      <section id="projects">
+        <div className="project-cont">
           <div className="grid-bg" aria-hidden="true" />
-          <h2 className=" text-3xl md:text-4xl font-bold mb-12 text-center">Mes <span className="text-primary">projets</span>.</h2>
-          <div className="horizontall-sect 2xl:max-w-3/5 2xl:mx-auto">
-            <div className="project-list-container" ref={containerRef} onScroll={handleContainerScroll}>
-              <div className="project-list" style={{ display: "flex" }}>
-                <div className="spacer" />
-                {projects.map((project, i) => {
-                    if(project.title === "Smart Planner") { return(
-                         <div
-                    key={project.title}
-                    data-index={i}
-                    className={`project-card${i === activeIdx ? " active-project" : ""}${i === hoveredIdx ? " hovered" : ""}`}
-                    onClick={() => handleCardClick(i, project.link)}
-                    onMouseEnter={(event) => handleCardMouseEnter(i, event)}
-                    onMouseMove={(event) => handleCardMouseMove(i, event)}
-                    onMouseLeave={handleCardMouseLeave}
-                    tabIndex={0}
-                    style={{ outline: "none" }}
-                  >
-                    <div className="img-text-cont">
-                      <div className="img-container text-box" style={{ position: "relative" }}>
-                        <div className="date-cont black-glass">{project.date}</div>
-                        <img src={project.image} alt={project.title} />
-                      </div>
-                      <div className="txt-container">
-                        <h3 className="text-box">{project.title}</h3>
-                        <p className="text-box" dangerouslySetInnerHTML={{ __html: project.description }} />
-                      </div>
-                    </div>
-                    <div className="language-bar">
-                      {project.languages.map((lang) => (
-                        <div className="language-text" key={lang}>{lang}</div>
-                      ))}
-                      <a
-                        className="github-button"
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={e => e.stopPropagation()}
+          <div className="content-pad">
+            <div className="clip-path">
+              <h2 className="text-3xl md:text-4xl font-bold mt-30 mb-12 text-center">
+                Mes <span className="text-primary ">projets</span>.
+              </h2>
+            </div>
+            <div className="horizontall-sect">
+              <div className="project-list-container" ref={containerRef} onScroll={handleContainerScroll}>
+                <div className="project-list-spacer">
+                  <div className="project-list">
+                    <div className="spacer" />
+                    {projects.map((project, i) => (
+                      <div
+                        key={project.title}
+                        id={i === 0 ? "first-project" : undefined}
+                        data-index={i}
+                        className={`project-card${i === activeIdx ? " active-project" : ""}${i === hoveredIdx ? " hovered" : ""}`}
+                        onClick={() => handleCardClick(i, project.link)}
+                        onMouseEnter={(event) => handleCardMouseEnter(i, event)}
+                        onMouseMove={(event) => handleCardMouseMove(i, event)}
+                        onMouseLeave={handleCardMouseLeave}
+                        tabIndex={0}
+                        style={{ outline: "none" }}
                       >
-                        Voir le site
-                      </a>
-                    </div>
-                  </div>
-                    )
-                    };
-                  return (
-                  <div
-                    key={project.title}
-                    data-index={i}
-                    className={`project-card${i === activeIdx ? " active-project" : ""}${i === hoveredIdx ? " hovered" : ""}`}
-                    onClick={() => handleCardClick(i, project.link)}
-                    onMouseEnter={(event) => handleCardMouseEnter(i, event)}
-                    onMouseMove={(event) => handleCardMouseMove(i, event)}
-                    onMouseLeave={handleCardMouseLeave}
-                    tabIndex={0}
-                    style={{ outline: "none" }}
-                  >
-                    <div className="img-text-cont">
-                      <div className="img-container text-box" style={{ position: "relative" }}>
-                        <div className="date-cont black-glass">{project.date}</div>
-                        <img src={project.image} alt={project.title} />
+                        <div className="img-text-cont">
+                          <div className="img-container text-box" style={{ position: "relative" }}>
+                            <div className="date-cont black-glass">{project.date}</div>
+                            <img src={project.image} alt={project.title} />
+                          </div>
+                          <div className="txt-container">
+                            <h3 className="text-box">{project.title}</h3>
+                            <p className="text-box" dangerouslySetInnerHTML={{ __html: project.description }} />
+                          </div>
+                        </div>
+                        <div className="language-bar">
+                          {project.languages.map((lang) => (
+                            <div className="language-text" key={lang}>{lang}</div>
+                          ))}
+                          <a
+                            className="github-button"
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {getProjectCtaLabel(project.title)}
+                          </a>
+                        </div>
                       </div>
-                      <div className="txt-container">
-                        <h3 className="text-box">{project.title}</h3>
-                        <p className="text-box" dangerouslySetInnerHTML={{ __html: project.description }} />
-                      </div>
-                    </div>
-                    <div className="language-bar">
-                      {project.languages.map((lang) => (
-                        <div className="language-text" key={lang}>{lang}</div>
-                      ))}
-                      <a
-                        className="github-button"
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={e => e.stopPropagation()}
-                      >
-                        Voir le Github
-                      </a>
-                    </div>
+                    ))}
+                    <div className="spacer" />
                   </div>
-                  );
-                })}
-                <div className="spacer" />
+                </div>
               </div>
             </div>
           </div>
@@ -288,7 +261,7 @@ export default function Projects() {
       </section>
       <div
         ref={cursorRef}
-        className={`following-cursor${cursorVisible ? " visible" : ""}`}
+          className={`following-cursor following-cursor--${cursorIcon}${cursorVisible ? " visible" : ""}`}
         aria-hidden="true"
       >
         <svg

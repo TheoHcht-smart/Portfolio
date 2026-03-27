@@ -1,6 +1,5 @@
 import { Github, LinkedinIcon, Mail, MapPin, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { cn } from "../lib/utils";
 
 
 export const Contact = () => {
@@ -50,6 +49,37 @@ export const Contact = () => {
         window.location.href = mailtoUrl;
     };
 
+    const contactItems = [
+        {
+            title: "Email",
+            value: "theohuchot.contact@gmail.com",
+            href: "mailto:theohuchot.contact@gmail.com",
+            icon: Mail,
+            className: "animate-fade-in-delay-1",
+        },
+        {
+            title: "LinkedIn",
+            value: "Théo Huchot",
+            href: "https://fr.linkedin.com/in/th%C3%A9o-huchot-923a6b263",
+            icon: LinkedinIcon,
+            className: "animate-fade-in-delay-2",
+        },
+        {
+            title: "GitHub",
+            value: "TheoHcht-smart",
+            href: "https://github.com/TheoHcht-smart",
+            icon: Github,
+            className: "animate-fade-in-delay-3",
+        },
+        {
+            title: "Adresse",
+            value: "Metz, Moselle, France",
+            href: "https://www.google.com/maps/place/Metz",
+            icon: MapPin,
+            className: "animate-fade-in-delay-4",
+        },
+    ];
+
     return (
         <section id="contact" className="py-24 px-4 relative bg-secondary/30" ref={sectionRef}>
             <div className="max-w-full md:max-w-3/4 mx-auto">
@@ -60,85 +90,31 @@ export const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className={`space-y-8 opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
-                        <h3 className="hidden md:block text-2xl font-semibold mb-30">Informations de contact</h3>
+                        <div className="contact-info">
+                            {contactItems.map((item) => {
+                                const Icon = item.icon;
 
-                        <div className={`space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-1" : ""}`}>
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/30">
-                                    <Mail className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold">Email</h4>
+                                return (
                                     <a
-                                        href="mailto:theohuchot.contact@gmail.com"
-                                        className="text-lg text-muted-foreground hover:text-white transition-colors"
+                                        key={item.title}
+                                        href={item.href}
+                                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                        aria-label={item.title}
+                                        className={`social-link black-glass opacity-0 ${isVisible ? item.className : ""}`}
                                     >
-                                        theohuchot.contact@gmail.com
+                                        <div className="social-svg-cont" aria-hidden="true">
+                                            <Icon className="social-icon" size={32} />
+                                        </div>
+                                        <p>{item.value}</p>
                                     </a>
-                                </div>
-                            </div>
+                                );
+                            })}
                         </div>
-
-                        <a
-                            href="https://fr.linkedin.com/in/th%C3%A9o-huchot-923a6b263"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}
-                        >
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/30">
-                                    <LinkedinIcon className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold">LinkedIn</h4>
-                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
-                                        Théo Huchot
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/TheoHcht-smart"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-3" : ""}`}
-                        >
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/30">
-                                    <Github className="h-6 w-6 " />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold">GitHub</h4>
-                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
-                                        TheoHcht-smart
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://www.google.com/maps/place/Metz"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`block space-y-6 card-hover p-6 black-glass rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-4" : ""}`}
-                        >
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 rounded-full bg-primary/30">
-                                    <MapPin className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold">Adresse</h4>
-                                    <p className="text-lg text-muted-foreground hover:text-primary transition-colors">
-                                        Metz, Moselle, France
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
                     </div>
 
-                    <div className={`contact-message-card hidden md:block bg-card p-8 rounded-lg shadow-xs opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>
-                        <h3 className=" text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
+                    <div className={`contact-message-card glass-panel hidden md:block p-8 rounded-lg opacity-0 ${isVisible ? "animate-fade-in-delay-2" : ""}`}>
+                        <h3 className=" text-2xl  font-semibold mb-6">Envoyez-moi un message</h3>
 
                         <form className="space-y-6" onSubmit={handleSubmit}>
                             <div>
@@ -152,7 +128,7 @@ export const Contact = () => {
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-md border border-input focus:outline-hidden focus:ring-2 focus:ring-primary"
+                                    className="w-full px-4 py-3 rounded-md border border-input/70 bg-white/55 dark:bg-white/8 focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="Votre nom..."
                                 />
                             </div>
@@ -167,7 +143,7 @@ export const Contact = () => {
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-md border border-input focus:outline-hidden focus:ring-2 focus:ring-primary"
+                                    className="w-full px-4 py-3 rounded-md border border-input/70 bg-white/55 dark:bg-white/8 focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="votre.email@example.com"
                                 />
                             </div>
@@ -182,18 +158,15 @@ export const Contact = () => {
                                     required
                                     value={formData.message}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-md border border-input focus:outline-hidden focus:ring-2 focus:ring-primary"
+                                    className="w-full px-4 py-3 rounded-md border border-input/70 bg-white/55 dark:bg-white/8 focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="Votre message..."
                                 ></textarea>
                             </div>
-                            <button
-                                type="submit"
-                                className={cn(
-                                    "cosmic-button w-full flex items-center justify-center bg-primary hover:bg-primary/80 text-white transition-colors"
-                                )}
-                            >
-                                Envoyer un message
-                                <Send size={16} />
+                            <button type="submit" className="contact-action-button w-full">
+                                <span>Envoyer un message</span>
+                                <div className="icon-cont" aria-hidden="true">
+                                    <Send className="icon" size={18} />
+                                </div>
                             </button>
                         </form>
                     </div>

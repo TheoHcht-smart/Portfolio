@@ -1,0 +1,8 @@
+#about .about-skill-text {
+  color: hsl(222 47% 11%) !important;
+  opacity: 1;
+}
+
+.dark #about .about-skill-text {
+  color: hsl(213 31% 91%) !important;
+}

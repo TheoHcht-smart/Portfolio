@@ -1,4 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
+@import "./assets/layout-overrides.css";
+@import "./assets/about.css";
+@import "./assets/contact.css";
+@import "./assets/header-progress.css";
+@import "./assets/skills-system.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -129,6 +135,10 @@
   --light_grey: #d7d7d7;
   --white: #ffffff;
 
+  /* Fonts */
+  --f-text: "Plus Jakarta Sans", sans-serif;
+  --f-title: "Anybody", sans-serif;
+
 
   --fs-nav: 14px;
   --fs-title: clamp(30px, 6vw, 45px);
@@ -240,281 +250,27 @@ html:not(.dark) body {
 
 }
 
-.cloud {
-  position: absolute;
-  left: -220px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 9999px;
-  filter: blur(0.5px);
-  animation-name: cloud-drift;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08)),
+    rgba(14, 19, 46, 0.26);
+  box-shadow:
+    0 18px 40px rgba(2, 16, 38, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
 }
 
-/* Ultrawide-only clouds: hidden on normal screens */
-.ultrawide-cloud {
-  display: none;
-}
-
-@media (min-width: 2560px) {
-  .ultrawide-cloud {
-    display: block;
-  }
-}
-
-/* Desktop clouds: hidden on mobile */
-/* Mobile clouds: hidden on desktop */
-.mobile-cloud {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .desktop-cloud {
-    display: none;
-  }
-  .mobile-cloud {
-    display: block;
-  }
-}
-
-.cloud::before,
-.cloud::after {
-  content: "";
-  position: absolute;
-  background: inherit;
-  border-radius: inherit;
-}
-
-.cloud::before {
-  width: 42%;
-  height: 125%;
-  left: 14%;
-  top: -52%;
-}
-
-.cloud::after {
-  width: 36%;
-  height: 105%;
-  right: 14%;
-  top: -38%;
-}
-
-#root{
-  max-width: 100%;
-  margin:0 auto; 
-  padding: 0;
-  text-align: center;  
-
-}
-
-html:not(.dark) #root {
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
-}
-
-html:not(.dark) #root .text-primary {
-  text-shadow: none;
-}
-
-html:not(.dark) #root .contact-message-card {
-  text-shadow: none;
-}
-
-
-html:not(.dark) #root .about-skill-text {
-  text-shadow: none;
-}
-
-.dark #root {
-  text-shadow: none;
-}
-
-.circle {
-  height: 24px;
-  width: 24px;
-  border-radius: 24px;
-  background-color: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999999;
-}
-
-#about .about-skill-text {
-  color: hsl(222 47% 11%) !important;
-  opacity: 1;
-}
-
-.dark #about .about-skill-text {
-  color: hsl(213 31% 91%) !important;
-}
-
-#contact .contact-message-card,
-#contact .contact-message-card h3,
-#contact .contact-message-card label {
-  color: hsl(222 47% 11%) !important;
-}
-
-#contact .contact-message-card input,
-#contact .contact-message-card textarea {
-  color: hsl(222 47% 11%) !important;
-}
-
-#contact .contact-message-card input::placeholder,
-#contact .contact-message-card textarea::placeholder {
-  color: hsl(222 20% 45%);
-  opacity: 1;
-}
-
-.dark #contact .contact-message-card,
-.dark #contact .contact-message-card h3,
-.dark #contact .contact-message-card label,
-.dark #contact .contact-message-card input,
-.dark #contact .contact-message-card textarea {
-  color: hsl(213 31% 91%) !important;
-}
-
-.dark #contact .contact-message-card input::placeholder,
-.dark #contact .contact-message-card textarea::placeholder {
-  color: hsl(213 16% 70%);
-}
-
-#header .scroll-progress-track {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 5px;
-  border-radius: 0;
-  overflow: hidden;
-  margin-bottom: 0;
-  backdrop-filter: blur(16px) saturate(1.4);
-  z-index: 1200;
-  pointer-events: none;
-}
-
-#header .scroll-progress-bar {
-  height: 100%;
-  width: 100%;
-  transform-origin: left center;
-  transform: scaleX(0);
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--light-cyan), var(--cyan));
-  transition: transform 0.15s linear;
-}
-
-html:not(.dark) #header .scroll-progress-bar {
-  background: linear-gradient(90deg, #000000, #777777);
-}
-
-.skills-solar {
-  position: relative;
-  width: min(92vw, 760px);
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-  overflow: visible;
-  isolation: isolate;
-}
-
-.skills-core {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: min(38vw, 240px);
-  height: min(38vw, 240px);
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-size: clamp(1.3rem, 3.1vw, 2.5rem);
-  font-weight: 800;
-  color: hsl(var(--primary));
-  background: radial-gradient(circle, #ffffff30 0%, #ffffff12 65%, transparent 100%);
-  border: 1px solid #ffffff2f;
-  backdrop-filter: blur(10px);
-  z-index: 1;
-  pointer-events: none;
-  margin: 0;
-  line-height: 1;
-}
-
-.skills-core span {
-  display: block;
-  line-height: 1;
-  max-width: 82%;
-  overflow-wrap: anywhere;
-}
-
-.skills-orbit-ring {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--orbit-size);
-  height: var(--orbit-size);
-  transform: translate(-50%, -50%);
-  border: 1px solid #ffffffd7;
-  border-radius: 999px;
-  pointer-events: none;
-  animation: skills-system-orbit var(--orbit-duration) linear infinite;
-  animation-direction: var(--orbit-direction);
-}
-
-.skills-orbit-ball {
-  position: absolute;
-  inset: 0;
-  transform: rotate(var(--ball-angle));
-  pointer-events: none;
-}
-
-.skills-orbit-ball-inner {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: clamp(36px, 4.2vw, 50px);
-  height: clamp(36px, 4.2vw, 50px);
-  transform: translate(-50%, -50%);
-  pointer-events: auto;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.skills-orbit-ball canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 999px;
-}
-
-@keyframes skills-system-orbit {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-solar {
-    width: min(86vw, 460px);
-    margin-inline: auto;
-    margin-top: 8px;
-  }
-
-  .skills-core {
-    width: min(42vw, 100px);
-    height: min(42vw, 100px);
-    font-size: clamp(1.05rem, 4.8vw, 1.55rem);
-  }
-
-  .skills-orbit-ball {
-    inset: 0;
-  }
-
-  .skills-orbit-ball-inner {
-    width: clamp(32px, 8vw, 40px);
-    height: clamp(32px, 8vw, 40px);
-  }
+.dark .glass-panel {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+    rgba(6, 10, 24, 0.64);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(148, 163, 184, 0.08);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
